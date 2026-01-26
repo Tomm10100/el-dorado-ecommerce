@@ -1067,15 +1067,16 @@ nav {
   }
 
   .hero-primary-visual {
-    max-width: 60%;
-    margin: 2rem auto;
-    /* Global centering */
+    max-width: 80%;
+    /* Standard width for a vertical image */
+    margin: 0 auto;
+    /* Standard centering */
     display: block;
-    transform: rotate(90deg) scale(0.85);
-    /* Slightly smaller to be safe */
-    margin-top: 12rem;
-    /* Massive spacing to clear logo (rotation causes virtual overlap) */
-    margin-bottom: 4rem;
+    transform: none !important;
+    /* disable any rotation */
+    margin-top: 2rem;
+    /* Normal spacing */
+    margin-bottom: 2rem;
     order: 1;
     align-self: center;
   }
