@@ -310,6 +310,24 @@ nav {
   align-items: center;
   height: 120px;
   /* Taller visualizer */
+  z-index: 1;
+  /* Minimal z-index */
+}
+
+@media (max-width: 768px) {
+  #resonance-visualizer {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: 3rem;
+    order: 4;
+    /* Force to very bottom */
+    width: 100%;
+    justify-content: center;
+    height: 80px;
+    /* Slightly smaller on mobile to save space */
+  }
 }
 
 .wave-bar {
