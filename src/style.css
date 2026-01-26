@@ -1041,29 +1041,34 @@ nav {
   }
 
   .hero-primary-visual {
-    max-width: 55%;
-    /* Even smaller */
-    margin: 1rem auto;
+    max-width: 60%;
+    margin: 2rem auto;
     display: block;
-    /* Rotation compensation */
     transform: rotate(90deg) scale(0.9);
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    order: 1;
+    /* Explicitly 1st */
   }
 
   .frequency-controls {
     position: relative;
+    /* Override any absolute positioning */
     inset: auto;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
     transform: none;
-    margin-top: auto;
-    /* Push to bottom of flex container */
-    margin-bottom: 2rem;
+    margin: 2rem 0;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     z-index: 20;
+    order: 2;
+    /* Explicitly 2nd in the flex stack */
   }
 
   .freq-value {
