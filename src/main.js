@@ -77,7 +77,7 @@ document.querySelector('#app').innerHTML = `
   </main>
 
   <footer class="section-padding" style="text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
-    <p class="sans" style="font-size: 0.7rem; letter-spacing: 0.3em; opacity: 0.4;">&copy; 2025 EL DORADO. BUILT FOR COLLABORATION.</p>
+    <p class="sans" style="font-size: 0.7rem; letter-spacing: 0.3em; opacity: 0.4;">&copy; 2025 EL DORADO. V2.0 - COSMIC UPDATE LIVE.</p>
   </footer>
 `
 
