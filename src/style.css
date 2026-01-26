@@ -1052,14 +1052,18 @@ nav {
   }
 
   .hero-copy h1 {
-    font-size: 2rem;
-    /* reduced from 2.5rem to fix ELEGANC E break */
-    line-height: 1.1;
-    width: 100%;
-    white-space: nowrap;
-    /* Force single line */
-    letter-spacing: 0.2em;
-    /* Slightly reduce spacing if needed */
+    font-size: 1.5rem;
+    /* Drastic reduction to be safe */
+    line-height: 1.2;
+    width: 90%;
+    /* Constrain width */
+    max-width: 350px;
+    white-space: normal;
+    /* Allow wrapping if needed */
+    letter-spacing: 0.1em;
+    /* Tighter tracking */
+    margin: 0 auto 0.5rem auto;
+    /* Explicit centering */
   }
 
   .hero-copy p {
