@@ -1051,8 +1051,12 @@ nav {
   }
 
   .hero-copy h1 {
-    font-size: 3.2rem;
+    font-size: 2.5rem;
+    /* Reduce from 3.2rem to fit standard phones */
     line-height: 1.1;
+    width: 100%;
+    overflow-wrap: break-word;
+    /* Ensure clumsy words break if needed */
   }
 
   .hero-copy p {
