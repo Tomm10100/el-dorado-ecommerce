@@ -1044,6 +1044,10 @@ nav {
     z-index: 10;
     order: 4;
     /* Below controls */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .hero-copy h1 {
@@ -1077,11 +1081,14 @@ nav {
     right: auto;
     bottom: auto;
     transform: none;
-    margin: 2rem 0;
+    margin: 2rem auto;
+    /* Center the container itself */
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    /* Ensure contents are centered */
     width: 100%;
     z-index: 20;
     z-index: 20;
