@@ -142,17 +142,25 @@ const PRODUCTS = [
 function initHero() {
   const container = document.querySelector('#hero-ring-container');
   const img = document.createElement('img');
-  img.src = '/hero-chain.png'; // Using the clean hero image
-  img.className = 'hero-primary-visual';
-  container.appendChild(img);
 
-  window.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 30;
-    const y = (e.clientY / window.innerHeight - 0.5) * 30;
-    img.style.transform = `translate(${x}px, ${y}px) rotate(90deg) rotate(${x / 10}deg)`;
-  });
-  // Set initial position
-  img.style.transform = 'rotate(90deg)';
+  // Mobile check
+  if (window.innerWidth <= 768) {
+    img.src = '/hero-chain-mobile.png'; // Pre-rotated image
+    img.className = 'hero-primary-visual mobile-optimized'; // simplified class
+  } else {
+    img.src = '/hero-chain.png';
+    img.className = 'hero-primary-visual';
+
+    window.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 30;
+      const y = (e.clientY / window.innerHeight - 0.5) * 30;
+      img.style.transform = `translate(${x}px, ${y}px) rotate(90deg) rotate(${x / 10}deg)`;
+    });
+    // Set initial position for desktop
+    img.style.transform = 'rotate(90deg)';
+  }
+
+  container.appendChild(img);
 }
 
 function initVisualizer() {
