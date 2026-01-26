@@ -1060,100 +1060,101 @@ nav {
     line-height: 1.6;
   }
 
-  .hero-primary-visual {
-    max-width: 60%;
-    margin: 2rem auto;
-    display: block;
-    transform: rotate(90deg) scale(0.9);
-    margin-top: 6rem;
-    /* Increased spacing from logo */
-    margin-bottom: 3rem;
-    order: 1;
-    /* Explicitly 1st */
-  }
+  max-width: 60%;
+  margin: 2rem auto;
+  display: block;
+  transform: rotate(90deg) scale(0.9);
+  margin-top: 6rem;
+  /* Increased spacing from logo */
+  margin-bottom: 3rem;
+  order: 1;
+  /* Explicitly 1st */
+  align-self: center;
+  /* Flexbox self-centering */
+}
 
-  .frequency-controls {
-    position: relative;
-    /* Override any absolute positioning */
-    inset: auto;
-    top: auto;
-    left: auto;
-    right: auto;
-    bottom: auto;
-    transform: none;
-    margin: 2rem auto;
-    /* Center the container itself */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* Ensure contents are centered */
-    width: 100%;
-    z-index: 20;
-    z-index: 20;
-    order: 3;
-    /* Affirmations are 2, Controls are 3 */
-  }
+.frequency-controls {
+  position: relative;
+  /* Override any absolute positioning */
+  inset: auto;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  transform: none;
+  margin: 2rem auto;
+  /* Center the container itself */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Ensure contents are centered */
+  width: 100%;
+  z-index: 20;
+  z-index: 20;
+  order: 3;
+  /* Affirmations are 2, Controls are 3 */
+}
 
-  .freq-value {
-    font-size: 5rem;
-  }
+.freq-value {
+  font-size: 5rem;
+}
 
-  /* === PRODUCT GRID (The "Trash" Fix) === */
-  .product-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-    /* More space between products */
-    margin-top: 4rem;
-    padding: 0 1rem;
-  }
+/* === PRODUCT GRID (The "Trash" Fix) === */
+.product-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  /* More space between products */
+  margin-top: 4rem;
+  padding: 0 1rem;
+}
 
-  .product-card,
-  .product-card-standard,
-  .product-card-large {
-    grid-column: auto;
-    width: 100%;
-    margin: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    /* Divider style */
-    padding-bottom: 2rem;
-  }
+.product-card,
+.product-card-standard,
+.product-card-large {
+  grid-column: auto;
+  width: 100%;
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  /* Divider style */
+  padding-bottom: 2rem;
+}
 
-  .product-card-large {
-    flex-direction: column;
-  }
+.product-card-large {
+  flex-direction: column;
+}
 
-  .product-card-large .product-info {
-    width: 100%;
-    padding: 2rem 0;
-    border: none;
-  }
+.product-card-large .product-info {
+  width: 100%;
+  padding: 2rem 0;
+  border: none;
+}
 
-  .product-image-container {
-    height: 450px;
-    /* Taller, more premium image ratio */
-    width: 100%;
-    border-radius: 4px;
-  }
+.product-image-container {
+  height: 450px;
+  /* Taller, more premium image ratio */
+  width: 100%;
+  border-radius: 4px;
+}
 
-  .product-info {
-    padding: 1.5rem 0;
-  }
+.product-info {
+  padding: 1.5rem 0;
+}
 
-  .product-title {
-    font-size: 1.5rem;
-  }
+.product-title {
+  font-size: 1.5rem;
+}
 
-  .product-desc {
-    font-size: 0.95rem;
-    opacity: 0.8;
-    line-height: 1.7;
-  }
+.product-desc {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  line-height: 1.7;
+}
 
-  /* === CART === */
-  .cart-sidebar {
-    width: 100%;
-  }
+/* === CART === */
+.cart-sidebar {
+  width: 100%;
+}
 }
