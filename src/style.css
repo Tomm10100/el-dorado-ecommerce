@@ -990,9 +990,12 @@ nav {
 
   /* === HERO SECTION === */
   .hero-section {
-    padding: 0 1.5rem;
-    min-height: 90vh;
-    /* slightly less than full height to show scroll hint */
+    padding: 6rem 1.5rem 2rem;
+    /* Added top padding for fixed nav */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .hero-copy {
@@ -1011,21 +1014,28 @@ nav {
   }
 
   .hero-primary-visual {
-    max-width: 90%;
-    margin: 2rem auto;
+    max-width: 65%;
+    /* Reduced width to fit when rotated 90deg */
+    margin: 4rem auto 3rem;
     display: block;
+    /* Ensure no overlap */
   }
 
   .frequency-controls {
     position: relative;
     left: 0;
-    top: 0;
+    top: auto;
+    bottom: 2rem;
+    /* Move to bottom on mobile */
     transform: none;
-    margin: 3rem auto;
+    margin: 2rem auto 0;
+    /* Clear the logo area */
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    order: 3;
+    /* Ensure it comes after other elements if using flex column */
   }
 
   .freq-value {
