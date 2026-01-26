@@ -1051,12 +1051,14 @@ nav {
   }
 
   .hero-copy h1 {
-    font-size: 2.5rem;
-    /* Reduce from 3.2rem to fit standard phones */
+    font-size: 2rem;
+    /* reduced from 2.5rem to fix ELEGANC E break */
     line-height: 1.1;
     width: 100%;
-    overflow-wrap: break-word;
-    /* Ensure clumsy words break if needed */
+    white-space: nowrap;
+    /* Force single line */
+    letter-spacing: 0.2em;
+    /* Slightly reduce spacing if needed */
   }
 
   .hero-copy p {
