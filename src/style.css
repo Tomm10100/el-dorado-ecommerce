@@ -78,6 +78,21 @@ h4,
   transform: translate(-50%, -50%) scale(1.1);
 }
 
+@media (max-width: 768px) {
+
+  .visual-affirmation,
+  .visual-affirmation.active {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    margin: 2rem 0;
+    order: 2;
+    /* Text underneath hero picture */
+  }
+}
+
 p,
 span,
 a,
@@ -327,6 +342,7 @@ nav {
     justify-content: center;
     height: 80px;
     /* Slightly smaller on mobile to save space */
+    order: 5;
   }
 }
 
@@ -1026,8 +1042,8 @@ nav {
     text-align: center;
     position: relative;
     z-index: 10;
-    order: 2;
-    /* Force to middle */
+    order: 4;
+    /* Below controls */
   }
 
   .hero-copy h1 {
