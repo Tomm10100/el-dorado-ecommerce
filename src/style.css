@@ -1061,7 +1061,8 @@ nav {
     margin: 2rem auto;
     display: block;
     transform: rotate(90deg) scale(0.9);
-    margin-top: 3rem;
+    margin-top: 6rem;
+    /* Increased spacing from logo */
     margin-bottom: 3rem;
     order: 1;
     /* Explicitly 1st */
@@ -1083,8 +1084,9 @@ nav {
     align-items: center;
     width: 100%;
     z-index: 20;
-    order: 2;
-    /* Explicitly 2nd in the flex stack */
+    z-index: 20;
+    order: 3;
+    /* Affirmations are 2, Controls are 3 */
   }
 
   .freq-value {
