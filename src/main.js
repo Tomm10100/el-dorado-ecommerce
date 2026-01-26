@@ -142,7 +142,7 @@ const PRODUCTS = [
 function initHero() {
   const container = document.querySelector('#hero-ring-container');
   const img = document.createElement('img');
-  img.src = '/product-chain.jpg'; // Using the iced chain for hero
+  img.src = '/hero-chain.png'; // Using the clean hero image
   img.className = 'hero-primary-visual';
   container.appendChild(img);
 
