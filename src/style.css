@@ -990,12 +990,17 @@ nav {
 
   /* === HERO SECTION === */
   .hero-section {
-    padding: 6rem 1.5rem 2rem;
-    /* Added top padding for fixed nav */
-    min-height: 100vh;
+    padding-top: 80px;
+    /* Exact nav height */
+    padding-bottom: 20px;
+    height: 100vh;
+    min-height: 600px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    /* Start from top to avoid squishing */
+    position: relative;
   }
 
   .hero-copy {
@@ -1016,28 +1021,29 @@ nav {
   }
 
   .hero-primary-visual {
-    max-width: 65%;
-    /* Reduced width to fit when rotated 90deg */
-    margin: 4rem auto 3rem;
+    max-width: 55%;
+    /* Even smaller */
+    margin: 1rem auto;
     display: block;
-    /* Ensure no overlap */
+    /* Rotation compensation */
+    transform: rotate(90deg) scale(0.9);
+    margin-top: 4rem;
+    margin-bottom: 4rem;
   }
 
   .frequency-controls {
     position: relative;
-    left: 0;
-    top: auto;
-    bottom: 2rem;
-    /* Move to bottom on mobile */
+    inset: auto;
     transform: none;
-    margin: 2rem auto 0;
-    /* Clear the logo area */
+    margin-top: auto;
+    /* Push to bottom of flex container */
+    margin-bottom: 2rem;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    order: 3;
-    /* Ensure it comes after other elements if using flex column */
+    width: 100%;
+    z-index: 20;
   }
 
   .freq-value {
