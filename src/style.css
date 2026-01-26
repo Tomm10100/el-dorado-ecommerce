@@ -1008,6 +1008,8 @@ nav {
     text-align: center;
     position: relative;
     z-index: 10;
+    order: 2;
+    /* Force to middle */
   }
 
   .hero-copy h1 {
