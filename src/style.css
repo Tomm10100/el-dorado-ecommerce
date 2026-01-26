@@ -1024,17 +1024,18 @@ nav {
 
   /* === HERO SECTION === */
   .hero-section {
-    padding-top: 80px;
-    /* Exact nav height */
-    padding-bottom: 20px;
-    height: 100vh;
-    min-height: 600px;
+    padding-top: 140px;
+    /* Increased to 140px to safely clear ANY fixed nav bar */
+    padding-bottom: 2rem;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* Strict horizontal centering */
     justify-content: flex-start;
-    /* Start from top to avoid squishing */
     position: relative;
+    width: 100%;
+    margin: 0;
   }
 
   .hero-copy {
@@ -1067,18 +1068,17 @@ nav {
   }
 
   .hero-primary-visual {
-    max-width: 80%;
-    /* Standard width for a vertical image */
-    margin: 0 auto;
-    /* Standard centering */
+    width: 80%;
+    /* Preferred width */
+    max-width: 400px;
+    /* Cap width */
+    margin: 0 auto 2rem auto;
+    /* Top: 0 (handled by padding), Bottom: 2rem, Sides: Auto */
     display: block;
     transform: none !important;
-    /* disable any rotation */
-    margin-top: 2rem;
-    /* Normal spacing */
-    margin-bottom: 2rem;
     order: 1;
     align-self: center;
+    /* Flex item alignment */
   }
 
   .frequency-controls {
