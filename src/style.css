@@ -1071,10 +1071,11 @@ nav {
     margin: 2rem auto;
     /* Global centering */
     display: block;
-    transform: rotate(90deg) scale(0.9);
-    margin-top: 8rem;
-    /* Confirmed visually needed spacing */
-    margin-bottom: 3rem;
+    transform: rotate(90deg) scale(0.85);
+    /* Slightly smaller to be safe */
+    margin-top: 12rem;
+    /* Massive spacing to clear logo (rotation causes virtual overlap) */
+    margin-bottom: 4rem;
     order: 1;
     align-self: center;
   }
