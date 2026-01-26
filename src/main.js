@@ -149,8 +149,10 @@ function initHero() {
   window.addEventListener('mousemove', (e) => {
     const x = (e.clientX / window.innerWidth - 0.5) * 30;
     const y = (e.clientY / window.innerHeight - 0.5) * 30;
-    img.style.transform = `translate(${x}px, ${y}px) rotate(${x / 10}deg)`;
+    img.style.transform = `translate(${x}px, ${y}px) rotate(90deg) rotate(${x / 10}deg)`;
   });
+  // Set initial position
+  img.style.transform = 'rotate(90deg)';
 }
 
 function initVisualizer() {
