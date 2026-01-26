@@ -976,207 +976,220 @@ nav {
   /* === NAV & HEADER === */
   .mobile-menu-btn {
     display: block;
-    top: 1.5rem;
-    left: 1.5rem;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    /* Changed from absolute */
+    top: auto;
+    left: auto;
+    background: transparent;
+    /* Cleaner look in nav */
+    backdrop-filter: none;
+    border: none;
+    padding: 0.5rem;
+    margin-right: 1rem;
+    /* Space from logo */
   }
 
   .nav-content {
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    /* Hamburger | Logo | Cart */
     align-items: center;
-    position: relative;
+    gap: 1rem;
   }
 
-  .desktop-nav {
-    display: none !important;
-  }
+  position: relative;
+}
 
-  .brand-logo {
-    font-size: 1.6rem;
-    position: relative;
-    left: 0;
-    transform: none;
-    margin: 0;
-  }
+.desktop-nav {
+  display: none !important;
+}
 
-  .cart-btn {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    padding: 8px;
-    /* Icon only feel */
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    justify-content: center;
-    margin: 0;
-    border: 1px solid var(--aura-gold);
-    background: rgba(0, 0, 0, 0.5);
-  }
+.brand-logo {
+  font-size: 1.6rem;
+  position: relative;
+  left: 0;
+  transform: none;
+  margin: 0;
+}
 
-  .cart-btn span {
-    display: none;
-  }
+.cart-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 8px;
+  /* Icon only feel */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  margin: 0;
+  border: 1px solid var(--aura-gold);
+  background: rgba(0, 0, 0, 0.5);
+}
 
-  /* Hide 'Cart' text, show icon */
-  .cart-btn::before {
-    content: '🛒';
-    font-size: 1.2rem;
-  }
+.cart-btn span {
+  display: none;
+}
 
-  /* === HERO SECTION === */
-  .hero-section {
-    padding-top: 140px;
-    /* Increased to 140px to safely clear ANY fixed nav bar */
-    padding-bottom: 2rem;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Strict horizontal centering */
-    justify-content: flex-start;
-    position: relative;
-    width: 100%;
-    margin: 0;
-  }
+/* Hide 'Cart' text, show icon */
+.cart-btn::before {
+  content: '🛒';
+  font-size: 1.2rem;
+}
 
-  .hero-copy {
-    margin-top: 1rem;
-    text-align: center;
-    position: relative;
-    z-index: 10;
-    order: 4;
-    /* Below controls */
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+/* === HERO SECTION === */
+.hero-section {
+  padding-top: 140px;
+  /* Increased to 140px to safely clear ANY fixed nav bar */
+  padding-bottom: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Strict horizontal centering */
+  justify-content: flex-start;
+  position: relative;
+  width: 100%;
+  margin: 0;
+}
 
-  .hero-copy h1 {
-    font-size: 1.5rem;
-    /* Drastic reduction to be safe */
-    line-height: 1.2;
-    width: 90%;
-    /* Constrain width */
-    max-width: 350px;
-    white-space: normal;
-    /* Allow wrapping if needed */
-    letter-spacing: 0.1em;
-    /* Tighter tracking */
-    margin: 0 auto 0.5rem auto;
-    /* Explicit centering */
-  }
+.hero-copy {
+  margin-top: 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  order: 4;
+  /* Below controls */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .hero-copy p {
-    font-size: 0.85rem;
-    line-height: 1.6;
-  }
+.hero-copy h1 {
+  font-size: 1.5rem;
+  /* Drastic reduction to be safe */
+  line-height: 1.2;
+  width: 90%;
+  /* Constrain width */
+  max-width: 350px;
+  white-space: normal;
+  /* Allow wrapping if needed */
+  letter-spacing: 0.1em;
+  /* Tighter tracking */
+  margin: 0 auto 0.5rem auto;
+  /* Explicit centering */
+}
 
-  .hero-primary-visual {
-    width: 80%;
-    /* Preferred width */
-    max-width: 400px;
-    /* Cap width */
-    margin: 0 auto 2rem auto;
-    /* Top: 0 (handled by padding), Bottom: 2rem, Sides: Auto */
-    display: block;
-    transform: none !important;
-    order: 1;
-    align-self: center;
-    /* Flex item alignment */
-  }
+.hero-copy p {
+  font-size: 0.65rem;
+  /* Smaller for mobile */
+  line-height: 1.6;
+  margin-top: 3rem;
+  /* Space from visualizer above */
+}
 
-  .frequency-controls {
-    position: relative;
-    /* Override any absolute positioning */
-    inset: auto;
-    top: auto;
-    left: auto;
-    right: auto;
-    bottom: auto;
-    transform: none;
-    margin: 2rem auto;
-    /* Center the container itself */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* Ensure contents are centered */
-    width: 100%;
-    z-index: 20;
-    z-index: 20;
-    order: 3;
-    /* Affirmations are 2, Controls are 3 */
-  }
+.hero-primary-visual {
+  width: 80%;
+  /* Preferred width */
+  max-width: 400px;
+  /* Cap width */
+  margin: 0 auto 2rem auto;
+  /* Top: 0 (handled by padding), Bottom: 2rem, Sides: Auto */
+  display: block;
+  transform: none !important;
+  order: 1;
+  align-self: center;
+  /* Flex item alignment */
+}
 
-  .freq-value {
-    font-size: 5rem;
-  }
+.frequency-controls {
+  position: relative;
+  /* Override any absolute positioning */
+  inset: auto;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  transform: none;
+  margin: 2rem auto;
+  /* Center the container itself */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Ensure contents are centered */
+  width: 100%;
+  z-index: 20;
+  z-index: 20;
+  order: 3;
+  /* Affirmations are 2, Controls are 3 */
+}
 
-  /* === PRODUCT GRID (The "Trash" Fix) === */
-  .product-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Center items horizontally */
-    gap: 4rem;
-    margin-top: 4rem;
-    padding: 0 1.5rem;
-    /* Match container padding */
-    width: 100%;
-    box-sizing: border-box;
-  }
+.freq-value {
+  font-size: 5rem;
+}
 
-  .product-card,
-  .product-card-standard,
-  .product-card-large {
-    grid-column: auto;
-    width: 100%;
-    margin: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    /* Divider style */
-    padding-bottom: 2rem;
-  }
+/* === PRODUCT GRID (The "Trash" Fix) === */
+.product-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center items horizontally */
+  gap: 4rem;
+  margin-top: 4rem;
+  padding: 0 1.5rem;
+  /* Match container padding */
+  width: 100%;
+  box-sizing: border-box;
+}
 
-  .product-card-large {
-    flex-direction: column;
-  }
+.product-card,
+.product-card-standard,
+.product-card-large {
+  grid-column: auto;
+  width: 100%;
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  /* Divider style */
+  padding-bottom: 2rem;
+}
 
-  .product-card-large .product-info {
-    width: 100%;
-    padding: 2rem 0;
-    border: none;
-  }
+.product-card-large {
+  flex-direction: column;
+}
 
-  .product-image-container {
-    height: 450px;
-    /* Taller, more premium image ratio */
-    width: 100%;
-    border-radius: 4px;
-  }
+.product-card-large .product-info {
+  width: 100%;
+  padding: 2rem 0;
+  border: none;
+}
 
-  .product-info {
-    padding: 1.5rem 0;
-  }
+.product-image-container {
+  height: 450px;
+  /* Taller, more premium image ratio */
+  width: 100%;
+  border-radius: 4px;
+}
 
-  .product-title {
-    font-size: 1.5rem;
-  }
+.product-info {
+  padding: 1.5rem 0;
+}
 
-  .product-desc {
-    font-size: 0.95rem;
-    opacity: 0.8;
-    line-height: 1.7;
-  }
+.product-title {
+  font-size: 1.5rem;
+}
 
-  /* === CART === */
-  .cart-sidebar {
-    width: 100%;
-  }
+.product-desc {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  line-height: 1.7;
+}
+
+/* === CART === */
+.cart-sidebar {
+  width: 100%;
+}
 }
