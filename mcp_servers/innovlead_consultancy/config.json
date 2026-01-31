@@ -1,0 +1,30 @@
+{
+    "mcpServers": {
+        "innovlead-consultancy": {
+            "command": "py",
+            "args": [
+                "-m",
+                "mcp_servers.innovlead_consultancy.server"
+            ],
+            "env": {},
+            "metadata": {
+                "name": "InnovLead Consultancy",
+                "version": "1.0.0",
+                "description": "Multi-dimensional consultancy automation for client onboarding and proposal generation",
+                "author": "InnovLead",
+                "capabilities": [
+                    "run_full_consultancy",
+                    "check_consultancy_status",
+                    "get_consultancy_results",
+                    "download_proposal",
+                    "send_proposals_email",
+                    "list_consultancy_history"
+                ],
+                "resources": [
+                    "consultancy://history",
+                    "consultancy://templates"
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eldorado111 - Executive Consultancy Summary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background: white;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 15mm;
+            margin: 0 auto;
+            background: white;
+        }
+
+        /* Header with Logo */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #000;
+            margin-bottom: 25px;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            font-family: 'Montserrat', 'Arial Black', sans-serif;
+        }
+
+        .logo .innov {
+            color: #000000;
+        }
+
+        .logo .lead {
+            color: #1e40af;
+        }
+
+        .report-date {
+            text-align: right;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Title Section */
+        .title-section {
+            background: #000;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .title-section h1 {
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .title-section .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Key Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .metric-card {
+            background: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            border-left: 4px solid #2563eb;
+        }
+
+        .metric-card .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .metric-card .value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .metric-card .sublabel {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .metric-card.alert .value {
+            color: #dc2626;
+        }
+
+        /* Opportunities Section */
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #000;
+        }
+
+        .opportunities {
+            display: grid;
+            gap: 15px;
+        }
+
+        .opportunity {
+            background: #fafafa;
+            border-left: 4px solid #2563eb;
+            padding: 15px;
+            page-break-inside: avoid;
+        }
+
+        .opportunity-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .opportunity-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .roi-badge {
+            background: #16a34a;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .roi-badge.medium {
+            background: #ea580c;
+        }
+
+        .opportunity-content {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .opportunity-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .metric-item {
+            font-size: 12px;
+        }
+
+        .metric-item strong {
+            color: #000;
+            font-weight: 600;
+        }
+
+        /* Pain Points */
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .pain-point {
+            background: #fef2f2;
+            border-left: 3px solid #dc2626;
+            padding: 12px;
+        }
+
+        .pain-point-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #991b1b;
+            margin-bottom: 6px;
+        }
+
+        .pain-point-desc {
+            font-size: 11px;
+            color: #7f1d1d;
+            line-height: 1.5;
+        }
+
+        /* Funding Section */
+        .funding-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .funding-card {
+            background: #f0fdf4;
+            border: 2px solid #16a34a;
+            padding: 15px;
+        }
+
+        .funding-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 8px;
+        }
+
+        .funding-amount {
+            font-size: 28px;
+            font-weight: bold;
+            color: #16a34a;
+            margin-bottom: 8px;
+        }
+
+        .funding-desc {
+            font-size: 11px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .funding-status {
+            margin-top: 8px;
+            padding: 6px;
+            background: #dcfce7;
+            border-left: 3px solid #16a34a;
+            font-size: 10px;
+            font-weight: 600;
+            color: #065f46;
+        }
+
+        /* Next Steps */
+        .next-steps {
+            background: #000;
+            color: white;
+            padding: 20px;
+            margin-top: 25px;
+        }
+
+        .next-steps h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .next-steps ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .next-steps li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 13px;
+        }
+
+        .next-steps li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #e5e5e5;
+            text-align: center;
+            font-size: 10px;
+            color: #666;
+        }
+
+        .footer strong {
+            color: #2563eb;
+            font-size: 12px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                padding: 15mm;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <!-- Header with Logo -->
+        <div class="header">
+            <div class="logo"><span class="innov">INNOV</span><span class="lead">LEAD</span></div>
+            <div class="report-date">
+                <strong>CONFIDENTIAL</strong><br>
+                January 27, 2026<br>
+                Analysis Report
+            </div>
+        </div>
+
+        <!-- Title Section -->
+        <div class="title-section">
+            <h1>Eldorado111</h1>
+            <div class="subtitle">Strategic Automation & Digital Transformation Analysis</div>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="label">Potential Funding</div>
+                <div class="value">$15K-100K</div>
+                <div class="sublabel">Est. Grants Available</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Revenue Opportunity</div>
+                <div class="value">+15-29%</div>
+                <div class="sublabel">From Automation</div>
+            </div>
+            <div class="metric-card alert">
+                <div class="label">Automation Status</div>
+                <div class="value">LOW</div>
+                <div class="sublabel">Action Required</div>
+            </div>
+        </div>
+
+        <!-- Pain Points -->
+        <div class="section">
+            <div class="section-title">⚠ Critical Pain Points</div>
+            <div class="pain-points">
+                
+                <div class="pain-point">
+                    <div class="pain-point-title">Challenge #1</div>
+                    <div class="pain-point-desc">Hiring data suggests a focus on roles that are ripe for automation, such as data entry, customer support, and social media management, suggesting a la...</div>
+                </div>
+        
+
+                <div class="pain-point">
+                    <div class="pain-point-title">Challenge #2</div>
+                    <div class="pain-point-desc">Digital transformation challenges identified in industry trends (resistance to change, uneven tool adoption) might be impacting adoption of automation...</div>
+                </div>
+        
+
+                <div class="pain-point">
+                    <div class="pain-point-title">Challenge #3</div>
+                    <div class="pain-point-desc">If Eldorado111 is indeed a luxury goods company, it's facing the broad challenges of luxury marketing and brand building in a digital age, possibly la...</div>
+                </div>
+        
+            </div>
+        </div>
+
+        <!-- Top Opportunities -->
+        <div class="section">
+            <div class="section-title">💡 Top Automation Opportunities</div>
+            <div class="opportunities">
+                
+                <div class="opportunity">
+                    <div class="opportunity-header">
+                        <div class="opportunity-title">Automated Data Ingestion Pipeline</div>
+                        <div class="roi-badge ">HIGH ROI</div>
+                    </div>
+                    <div class="opportunity-content">
+                        Develop an n8n workflow to extract data from various sources (e.g., web forms, spreadsheets, databases), transform it, and load it into target systems. Leverage APIs where possible and implement OCR f...
+                    </div>
+                    <div class="opportunity-metrics">
+                        <div class="metric-item"><strong>Expected Impact:</strong> Save up to 20 hours per week for data entry staff, reducing labor costs by an estimated $15,000-$20,000 per year</div>
+                        <div class="metric-item"><strong>Confidence:</strong> High</div>
+                    </div>
+                </div>
+        
+
+                <div class="opportunity">
+                    <div class="opportunity-header">
+                        <div class="opportunity-title">Autonomous E-Commerce Support Agent</div>
+                        <div class="roi-badge medium">MEDIUM ROI</div>
+                    </div>
+                    <div class="opportunity-content">
+                        Deploy an AI Agent powered by a large language model (e.g., Gemini 2.0) to handle common customer questions (order status, returns, product information). Integrate with existing e-commerce platform vi...
+                    </div>
+                    <div class="opportunity-metrics">
+                        <div class="metric-item"><strong>Expected Impact:</strong> </div>
+                        <div class="metric-item"><strong>Confidence:</strong> Med</div>
+                    </div>
+                </div>
+        
+
+                <div class="opportunity">
+                    <div class="opportunity-header">
+                        <div class="opportunity-title">AI-Powered Social Media Content Pipeline</div>
+                        <div class="roi-badge medium">MEDIUM ROI</div>
+                    </div>
+                    <div class="opportunity-content">
+                        Implement a Content Pipeline to automate content creation, scheduling, and distribution. Use AI to generate captions, hashtags, and images. Integrate with social media platforms via APIs. n8n will sch...
+                    </div>
+                    <div class="opportunity-metrics">
+                        <div class="metric-item"><strong>Expected Impact:</strong> Increase social media engagement by 25%</div>
+                        <div class="metric-item"><strong>Confidence:</strong> Med</div>
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+
+        <!-- Funding Opportunities -->
+        <div class="section">
+            <div class="section-title">💰 Potential Funding Sources</div>
+            <div class="funding-grid">
+                
+                <div class="funding-card">
+                    <div class="funding-title">CDAP Grant</div>
+                    <div class="funding-amount">Up to $15K</div>
+                    <div class="funding-desc">Canada Digital Adoption Program may provide funding for digital transformation strategy development. Approved applicants may access implementation loans up to $100K (subject to credit review).</div>
+                    <div class="funding-status">POTENTIALLY ELIGIBLE</div>
+                </div>
+        
+
+                <div class="funding-card">
+                    <div class="funding-title">SR&ED Tax Credits</div>
+                    <div class="funding-amount">Variable</div>
+                    <div class="funding-desc">Scientific Research & Experimental Development program offers up to 35% refundable tax credit on qualifying R&D expenses. AI/AR development may qualify (requires CRA approval).</div>
+                    <div class="funding-status">ELIGIBILITY ASSESSMENT NEEDED</div>
+                </div>
+        
+            </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="next-steps">
+            <h3>🎯 Recommended Next Steps</h3>
+            <ul>
+                <li>Schedule discovery call to review detailed automation opportunities</li>
+                <li>Conduct ROI analysis for top 3 recommended solutions</li>
+                <li>Begin funding application process for identified programs</li>
+                <li>Develop 90-day implementation roadmap</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <strong>PREPARED BY INNOVLEAD</strong><br>
+            Strategic Consultancy & Digital Transformation Advisory<br>
+            This analysis is confidential and prepared specifically for Eldorado111<br>
+            All estimates subject to detailed assessment • 2026-01-27 07:55
+        </div>
+    </div>
+</body>
+
+</html>

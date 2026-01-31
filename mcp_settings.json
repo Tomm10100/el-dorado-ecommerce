@@ -1,0 +1,11 @@
+{
+    "mcpServers": {
+        "innovlead-consultancy": {
+            "command": "py",
+            "args": [
+                "c:\\Users\\Ryzen 9 5900X\\Desktop\\Antigravity\\mcp_servers\\innovlead_consultancy\\server.py"
+            ],
+            "env": {}
+        }
+    }
+}

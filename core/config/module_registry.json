@@ -1,0 +1,33 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-12-11T20:07:00",
+  "modules": [
+    {
+      "name": "content-creation",
+      "path": "modules/content-creation",
+      "status": "active",
+      "version": "1.0.0",
+      "entry_point": "execution/main_content_pipeline.py"
+    },
+    {
+      "name": "mcp-integrations",
+      "path": "modules/mcp_integrations",
+      "status": "active",
+      "version": "1.0.0",
+      "entry_point": "execution/test_all_mcps.py"
+    },
+    {
+      "name": "client-automation",
+      "path": "modules/client-automation",
+      "status": "active",
+      "version": "1.0.0",
+      "entry_point": "execution/run_consultancy_loop.py"
+    }
+  ],
+  "mcp_servers": [],
+  "shared_libraries": [
+    "core/lib/api_client.py",
+    "core/lib/file_utils.py",
+    "core/lib/logger.py"
+  ]
+}
