@@ -16,24 +16,50 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://eldorado.com/" />
+  <meta property="og:url" content="https://eldorado111.com/" />
   <meta property="og:title" content="EL DORADO | 963Hz Resonant Silver Jewelry" />
   <meta property="og:description"
     content="Premium 963Hz silver jewelry collection. Luxury minimalist designs that resonate with your energy. Shop the Lunar Elegance Collection." />
-  <meta property="og:image" content="https://eldorado.com/og-image.jpg" />
+  <meta property="og:image" content="https://eldorado111.com/og-image.jpg" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://eldorado.com/" />
+  <meta property="twitter:url" content="https://eldorado111.com/" />
   <meta property="twitter:title" content="EL DORADO | 963Hz Resonant Silver Jewelry" />
   <meta property="twitter:description" content="Premium 963Hz silver jewelry collection. Luxury minimalist designs." />
-  <meta property="twitter:image" content="https://eldorado.com/og-image.jpg" />
+  <meta property="twitter:image" content="https://eldorado111.com/og-image.jpg" />
 
   <!-- Additional SEO -->
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://eldorado.com/" />
+  <link rel="canonical" href="https://eldorado111.com/" />
 
   <link rel="stylesheet" href="/src/style.css" />
+  <link rel="stylesheet" href="/enhancements.css" />
+
+  <!-- Google Analytics 4 - Add your GA4 Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    // GA4 will be configured via enhancements.js with environment variable
+  </script>
+
+  <!-- Facebook Pixel - Add your Pixel ID -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    // FB Pixel will be initialized via enhancements.js with environment variable
+  </script>
 </head>
 
 <body>
@@ -90,12 +116,20 @@
     <!-- Footer -->
     <footer class="glass">
       <div class="container footer-content sans">
-        <p>&copy; 2025 EL DORADO. ALL RIGHTS RESERVED.</p>
+        <div class="footer-links">
+          <a href="/legal/terms-of-service.html">Terms of Service</a>
+          <a href="/legal/privacy-policy.html">Privacy Policy</a>
+          <a href="/legal/refund-policy.html">Refund Policy</a>
+          <a href="/legal/shipping-policy.html">Shipping Policy</a>
+          <a href="mailto:tommy@innovlead.ca">Contact</a>
+        </div>
+        <p>&copy; 2026 EL DORADO. ALL RIGHTS RESERVED.</p>
       </div>
     </footer>
   </div>
 
   <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/enhancements.js"></script>
   <script src="/ai-chatbot.js"></script>
 
   <style>
@@ -173,11 +207,37 @@
     }
 
     footer {
-      padding: 2rem 0;
+      padding: 3rem 0 2rem;
       font-size: 0.6rem;
       letter-spacing: 0.3em;
       text-align: center;
       opacity: 0.5;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--aura-gold);
     }
 
     @media (max-width: 768px) {

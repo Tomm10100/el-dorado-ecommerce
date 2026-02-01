@@ -1,72 +1,77 @@
 // Shopping Cart System for El Dorado
 export class ShoppingCart {
-    constructor() {
-        this.items = this.loadCart();
-        this.init();
-    }
+  constructor() {
+    this.items = this.loadCart();
+    this.init();
+  }
 
-    init() {
-        this.createCartUI();
-        this.updateCartCount();
-    }
+  init() {
+    this.createCartUI();
+    this.updateCartCount();
+  }
 
-    loadCart() {
-        const saved = localStorage.getItem('eldorado-cart');
-        return saved ? JSON.parse(saved) : [];
-    }
+  loadCart() {
+    const saved = localStorage.getItem('eldorado-cart');
+    return saved ? JSON.parse(saved) : [];
+  }
 
-    saveCart() {
-        localStorage.setItem('eldorado-cart', JSON.stringify(this.items));
-        this.updateCartCount();
-    }
+  saveCart() {
+    localStorage.setItem('eldorado-cart', JSON.stringify(this.items));
+    this.updateCartCount();
+  }
 
-    addItem(product) {
-        const existing = this.items.find(item => item.id === product.id);
-        if (existing) {
-            existing.quantity += 1;
-        } else {
-            this.items.push({ ...product, quantity: 1 });
-        }
-        this.saveCart();
-        this.showNotification(`${product.name} added to cart`);
-        this.renderCart();
+  addItem(product) {
+    const existing = this.items.find(item => item.id === product.id);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      this.items.push({ ...product, quantity: 1 });
     }
+    this.saveCart();
+    this.showNotification(`${product.name} added to cart`);
+    this.renderCart();
 
-    removeItem(productId) {
-        this.items = this.items.filter(item => item.id !== productId);
-        this.saveCart();
-        this.renderCart();
+    // Track add to cart event
+    if (window.analytics) {
+      window.analytics.trackAddToCart(product);
     }
+  }
 
-    updateQuantity(productId, quantity) {
-        const item = this.items.find(item => item.id === productId);
-        if (item) {
-            item.quantity = Math.max(1, quantity);
-            this.saveCart();
-            this.renderCart();
-        }
+  removeItem(productId) {
+    this.items = this.items.filter(item => item.id !== productId);
+    this.saveCart();
+    this.renderCart();
+  }
+
+  updateQuantity(productId, quantity) {
+    const item = this.items.find(item => item.id === productId);
+    if (item) {
+      item.quantity = Math.max(1, quantity);
+      this.saveCart();
+      this.renderCart();
     }
+  }
 
-    getTotal() {
-        return this.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  getTotal() {
+    return this.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  }
+
+  getItemCount() {
+    return this.items.reduce((sum, item) => sum + item.quantity, 0);
+  }
+
+  updateCartCount() {
+    const badge = document.querySelector('#cart-count');
+    const count = this.getItemCount();
+    if (badge) {
+      badge.textContent = count;
+      badge.style.display = count > 0 ? 'flex' : 'none';
     }
+  }
 
-    getItemCount() {
-        return this.items.reduce((sum, item) => sum + item.quantity, 0);
-    }
-
-    updateCartCount() {
-        const badge = document.querySelector('#cart-count');
-        const count = this.getItemCount();
-        if (badge) {
-            badge.textContent = count;
-            badge.style.display = count > 0 ? 'flex' : 'none';
-        }
-    }
-
-    createCartUI() {
-        // Create cart sidebar overlay
-        const cartHTML = `
+  createCartUI() {
+    // Create cart sidebar overlay
+    const cartHTML = `
       <div id="cart-overlay" class="cart-overlay">
         <div class="cart-sidebar glass">
           <div class="cart-header">
@@ -90,43 +95,43 @@ export class ShoppingCart {
       </div>
     `;
 
-        document.body.insertAdjacentHTML('beforeend', cartHTML);
+    document.body.insertAdjacentHTML('beforeend', cartHTML);
 
-        // Event listeners
-        document.querySelector('#close-cart').addEventListener('click', () => this.closeCart());
-        document.querySelector('#cart-overlay').addEventListener('click', (e) => {
-            if (e.target.id === 'cart-overlay') this.closeCart();
-        });
+    // Event listeners
+    document.querySelector('#close-cart').addEventListener('click', () => this.closeCart());
+    document.querySelector('#cart-overlay').addEventListener('click', (e) => {
+      if (e.target.id === 'cart-overlay') this.closeCart();
+    });
 
-        document.querySelector('#checkout-stripe').addEventListener('click', () => this.checkoutStripe());
-        document.querySelector('#checkout-crypto').addEventListener('click', () => this.checkoutCrypto());
-    }
+    document.querySelector('#checkout-stripe').addEventListener('click', () => this.checkoutStripe());
+    document.querySelector('#checkout-crypto').addEventListener('click', () => this.checkoutCrypto());
+  }
 
-    openCart() {
-        this.renderCart();
-        document.querySelector('#cart-overlay').classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
+  openCart() {
+    this.renderCart();
+    document.querySelector('#cart-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
 
-    closeCart() {
-        document.querySelector('#cart-overlay').classList.remove('active');
-        document.body.style.overflow = '';
-    }
+  closeCart() {
+    document.querySelector('#cart-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
 
-    renderCart() {
-        const container = document.querySelector('#cart-items');
+  renderCart() {
+    const container = document.querySelector('#cart-items');
 
-        if (this.items.length === 0) {
-            container.innerHTML = `
+    if (this.items.length === 0) {
+      container.innerHTML = `
         <div class="empty-cart sans">
           <p>Your cart is empty</p>
         </div>
       `;
-            document.querySelector('#cart-total').textContent = '$0';
-            return;
-        }
+      document.querySelector('#cart-total').textContent = '$0';
+      return;
+    }
 
-        container.innerHTML = this.items.map(item => `
+    container.innerHTML = this.items.map(item => `
       <div class="cart-item">
         <img src="${item.img}" alt="${item.name}" class="cart-item-img">
         <div class="cart-item-details">
@@ -144,55 +149,66 @@ export class ShoppingCart {
       </div>
     `).join('');
 
-        document.querySelector('#cart-total').textContent = `$${this.getTotal()}`;
+    document.querySelector('#cart-total').textContent = `$${this.getTotal()}`;
+  }
+
+  async checkoutStripe() {
+    if (this.items.length === 0) {
+      alert('Your cart is empty');
+      return;
     }
 
-    checkoutStripe() {
-        if (this.items.length === 0) {
-            alert('Your cart is empty');
-            return;
-        }
-
-        // For now, show instructions for setting up Stripe
-        alert(`
-STRIPE SETUP NEEDED:
-
-1. Create Stripe account at stripe.com
-2. Get your publishable key
-3. Create products in Stripe Dashboard
-4. Add Stripe.js to your site
-5. Implement checkout
-
-For now, items in cart:
-${this.items.map(item => `${item.name} x${item.quantity} - $${item.price * item.quantity}`).join('\n')}
-
-Total: $${this.getTotal()}
-
-I'll help you set this up! - Claude
-    `);
-
-        // TODO: Implement actual Stripe checkout
-        // This will be: stripe.redirectToCheckout({ lineItems: [...], mode: 'payment' })
+    const stripePublicKey = import.meta.env.VITE_STRIPE_PUBLIC_KEY;
+    if (!stripePublicKey || stripePublicKey.includes('YOUR_')) {
+      alert('Stripe is not configured. Please set VITE_STRIPE_PUBLIC_KEY in .env');
+      return;
     }
 
-    checkoutCrypto() {
-        if (this.items.length === 0) {
-            alert('Your cart is empty');
-            return;
-        }
+    try {
+      // Dynamic import to keep initial bundle size low
+      const { loadStripe } = await import('@stripe/stripe-js');
+      const stripe = await loadStripe(stripePublicKey);
 
-        // Show XRP payment modal
-        this.showCryptoPayment();
+      // Track checkout initiation
+      if (window.analytics) {
+        window.analytics.trackInitiateCheckout(this.items, this.getTotal());
+      }
+
+      this.showNotification('Redirecting to secure checkout...');
+
+      // MOCK IMPLEMENTATION FOR NOW - Needs manual Price ID updates
+      // We will alert the user to mapped fields if Price IDs are missing
+
+      alert('Redirecting to Stripe... (Requires Price IDs in production)');
+
+      // To actually process payments securely without a backend, we need
+      // "Client-only Checkout" which requires creating Products in Stripe Dashboard
+      // and using their price_123 IDs.
+
+    } catch (err) {
+      console.error('Checkout failed:', err);
+      alert('Unable to initiate checkout. Please try again.');
+    }
+  }
+
+  checkoutCrypto() {
+    if (this.items.length === 0) {
+      alert('Your cart is empty');
+      return;
     }
 
-    showCryptoPayment() {
-        const total = this.getTotal();
-        // Example XRP conversion (you'll need real-time rate)
-        const xrpAmount = (total / 0.50).toFixed(2); // Assuming XRP = $0.50 (UPDATE WITH REAL RATE)
+    // Show XRP payment modal
+    this.showCryptoPayment();
+  }
 
-        const modal = document.createElement('div');
-        modal.className = 'crypto-modal';
-        modal.innerHTML = `
+  showCryptoPayment() {
+    const total = this.getTotal();
+    // Example XRP conversion (you'll need real-time rate)
+    const xrpAmount = (total / 0.50).toFixed(2); // Assuming XRP = $0.50 (UPDATE WITH REAL RATE)
+
+    const modal = document.createElement('div');
+    modal.className = 'crypto-modal';
+    modal.innerHTML = `
       <div class="crypto-content glass">
         <h3 class="serif">Pay with XRP</h3>
         <div class="crypto-details">
@@ -215,27 +231,27 @@ I'll help you set this up! - Claude
       </div>
     `;
 
-        document.body.appendChild(modal);
-    }
+    document.body.appendChild(modal);
+  }
 
-    showNotification(message) {
-        const notification = document.createElement('div');
-        notification.className = 'cart-notification glass';
-        notification.textContent = message;
-        document.body.appendChild(notification);
+  showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'cart-notification glass';
+    notification.textContent = message;
+    document.body.appendChild(notification);
 
-        setTimeout(() => notification.classList.add('show'), 100);
-        setTimeout(() => {
-            notification.classList.remove('show');
-            setTimeout(() => notification.remove(), 300);
-        }, 2000);
-    }
+    setTimeout(() => notification.classList.add('show'), 100);
+    setTimeout(() => {
+      notification.classList.remove('show');
+      setTimeout(() => notification.remove(), 300);
+    }, 2000);
+  }
 
-    clear() {
-        this.items = [];
-        this.saveCart();
-        this.renderCart();
-    }
+  clear() {
+    this.items = [];
+    this.saveCart();
+    this.renderCart();
+  }
 }
 
 // Initialize cart globally

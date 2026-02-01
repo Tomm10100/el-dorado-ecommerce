@@ -77,7 +77,7 @@ document.querySelector('#app').innerHTML = `
   </main>
 
   <footer class="section-padding" style="text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
-    <p class="sans" style="font-size: 0.7rem; letter-spacing: 0.3em; opacity: 0.4;">&copy; 2025 EL DORADO. V2.0 - COSMIC UPDATE LIVE.</p>
+    <p class="sans" style="font-size: 0.7rem; letter-spacing: 0.3em; opacity: 0.4;">&copy; 2026 EL DORADO. V2.0 - COSMIC UPDATE LIVE.</p>
   </footer>
 `
 
@@ -216,7 +216,6 @@ function renderProducts() {
       <div class="product-card glass ${variantClass}" data-aos="fade-up" style="--delay: ${index * 0.1}s">
         <div class="product-image-container">
           <img src="${p.img}" alt="${p.name}" class="parallax-img">
-          <div class="demo-badge">DEMO</div>
           <div class="product-resonance-overlay sans">${p.resonance} RESONANCE</div>
         </div>
         <div class="product-info">
