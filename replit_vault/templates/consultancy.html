@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultancy Engine - InnovLead Vault</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 900: '#0a1128', 800: '#001f54', 700: '#034078' },
+                        electric: { 500: '#1282A2', 400: '#0091C7', 300: '#00B4D8' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a1128 0%, #001f54 100%);
+        }
+
+        .progress-bar {
+            transition: width 0.5s ease;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 180, 216, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(0, 180, 216, 0.8);
+            }
+        }
+
+        .animate-pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen text-white" x-data="consultancyApp()">
+
+    <!-- Header -->
+    <header class="border-b border-electric-500/30 bg-navy-900/50 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <a href="/" class="text-2xl hover:opacity-80">←</a>
+                    <div class="text-3xl">🎯</div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-electric-300">Consultancy Engine</h1>
+                        <p class="text-sm text-gray-400">Multi-Dimensional Analysis System</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 max-w-6xl">
+
+        <!-- New Analysis Form -->
+        <div class="bg-navy-800/50 backdrop-blur-sm rounded-xl border border-electric-500/30 p-8 mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-electric-300">🚀 New Consultancy Analysis</h2>
+
+            <form @submit.prevent="runConsultancy()" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Company Name *</label>
+                        <input type="text" x-model="formData.company" placeholder="e.g., Shopify"
+                            class="w-full px-4 py-3 rounded-lg bg-navy-900/50 border border-electric-500/30 focus:border-electric-400 focus:outline-none focus:ring-2 focus:ring-electric-400/50"
+                            required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Industry</label>
+                        <input type="text" x-model="formData.industry" placeholder="e.g., E-commerce, SaaS"
+                            class="w-full px-4 py-3 rounded-lg bg-navy-900/50 border border-electric-500/30 focus:border-electric-400 focus:outline-none focus:ring-2 focus:ring-electric-400/50">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Website URL</label>
+                        <input type="url" x-model="formData.url" placeholder="https://example.com"
+                            class="w-full px-4 py-3 rounded-lg bg-navy-900/50 border border-electric-500/30 focus:border-electric-400 focus:outline-none focus:ring-2 focus:ring-electric-400/50">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Location</label>
+                        <select x-model="formData.location"
+                            class="w-full px-4 py-3 rounded-lg bg-navy-900/50 border border-electric-500/30 focus:border-electric-400 focus:outline-none focus:ring-2 focus:ring-electric-400/50">
+                            <option value="Canada">Canada</option>
+                            <option value="USA">USA</option>
+                            <option value="UK">UK</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" :disabled="isRunning"
+                    class="w-full py-4 bg-electric-500 hover:bg-electric-400 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-bold rounded-lg transition-colors flex items-center justify-center space-x-2"
+                    :class="{ 'animate-pulse-glow': isRunning }">
+                    <span x-show="!isRunning">🚀 Run Full Consultancy</span>
+                    <span x-show="isRunning">⏳ Running Analysis...</span>
+                </button>
+            </form>
+
+            <!-- Running Status -->
+            <div x-show="isRunning" class="mt-6 p-4 bg-navy-900/50 rounded-lg border border-electric-500/30">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="font-medium" x-text="currentJob.phase"></span>
+                    <span class="text-sm text-gray-400" x-text="currentJob.progress + '%'"></span>
+                </div>
+                <div class="w-full bg-navy-700 rounded-full h-3 overflow-hidden">
+                    <div class="progress-bar bg-electric-400 h-full rounded-full"
+                        :style="'width: ' + currentJob.progress + '%'"></div>
+                </div>
+                <p class="text-sm text-gray-400 mt-2">This usually takes 10-15 minutes...</p>
+            </div>
+        </div>
+
+        <!-- Recent Analyses -->
+        <div class="bg-navy-800/50 backdrop-blur-sm rounded-xl border border-electric-500/30 p-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-electric-300">📊 Recent Analyses</h2>
+                <button @click="loadHistory()"
+                    class="px-4 py-2 bg-navy-900/50 border border-electric-500/30 rounded-lg hover:bg-navy-700/50 transition-colors">
+                    🔄 Refresh
+                </button>
+            </div>
+
+            <!-- Loading State -->
+            <div x-show="isLoading" class="text-center py-12 text-gray-400">
+                <div class="animate-spin text-4xl mb-4">⚙️</div>
+                <p>Loading history...</p>
+            </div>
+
+            <!-- Empty State -->
+            <div x-show="!isLoading && history.length === 0" class="text-center py-12 text-gray-400">
+                <div class="text-6xl mb-4">📭</div>
+                <p class="text-lg">No analyses yet</p>
+                <p class="text-sm mt-2">Run your first consultancy to get started!</p>
+            </div>
+
+            <!-- History List -->
+            <div x-show="!isLoading && history.length > 0" class="space-y-4">
+                <template x-for="item in history" :key="item.job_id">
+                    <div
+                        class="bg-navy-900/50 border border-electric-500/20 rounded-lg p-6 hover:border-electric-500/40 transition-colors">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <div class="flex items-center space-x-3 mb-2">
+                                    <h3 class="text-xl font-bold" x-text="item.company"></h3>
+                                    <span class="px-3 py-1 rounded-full text-xs font-semibold" :class="{
+                                            'bg-green-500/20 text-green-400': item.status === 'complete',
+                                            'bg-yellow-500/20 text-yellow-400': item.status === 'running',
+                                            'bg-red-500/20 text-red-400': item.status === 'error',
+                                            'bg-blue-500/20 text-blue-400': item.status === 'queued'
+                                        }" x-text="item.status.toUpperCase()"></span>
+                                </div>
+                                <p class="text-sm text-gray-400 mb-4">
+                                    <span x-text="item.industry"></span> •
+                                    <span x-text="new Date(item.created_at).toLocaleDateString()"></span>
+                                </p>
+
+                                <!-- Metrics (if complete) -->
+                                <div x-show="item.status === 'complete' && item.metrics"
+                                    class="grid grid-cols-3 gap-4 mb-4">
+                                    <div>
+                                        <p class="text-xs text-gray-500">Funding Found</p>
+                                        <p class="text-lg font-bold text-green-400"
+                                            x-text="'$' + (item.metrics?.funding_found || 0).toLocaleString()"></p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-500">Annual ROI</p>
+                                        <p class="text-lg font-bold text-electric-300"
+                                            x-text="'$' + (item.metrics?.annual_roi || 0).toLocaleString()"></p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-500">Proposals</p>
+                                        <p class="text-lg font-bold text-blue-400"
+                                            x-text="item.metrics?.proposals_generated || 0"></p>
+                                    </div>
+                                </div>
+
+                                <!-- Actions -->
+                                <div x-show="item.status === 'complete'" class="flex flex-wrap gap-2">
+                                    <button @click="downloadProposal(item.job_id, 'executive')"
+                                        class="px-3 py-1.5 bg-electric-500/20 text-electric-300 rounded text-sm hover:bg-electric-500/30">
+                                        📄 Executive Summary
+                                    </button>
+                                    <button @click="downloadProposal(item.job_id, 'technical')"
+                                        class="px-3 py-1.5 bg-electric-500/20 text-electric-300 rounded text-sm hover:bg-electric-500/30">
+                                        🔧 Technical Roadmap
+                                    </button>
+                                    <button @click="downloadProposal(item.job_id, 'financial')"
+                                        class="px-3 py-1.5 bg-electric-500/20 text-electric-300 rounded text-sm hover:bg-electric-500/30">
+                                        💰 Financial Model
+                                    </button>
+                                    <button @click="downloadProposal(item.job_id, 'funding')"
+                                        class="px-3 py-1.5 bg-electric-500/20 text-electric-300 rounded text-sm hover:bg-electric-500/30">
+                                        📝 Funding Application
+                                    </button>
+                                    <button @click="emailModal = true; selectedJob = item"
+                                        class="px-3 py-1.5 bg-green-500/20 text-green-400 rounded text-sm hover:bg-green-500/30">
+                                        📧 Email Proposals
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Email Modal -->
+    <div x-show="emailModal" x-cloak class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+        <div @click.away="emailModal = false"
+            class="bg-navy-800 rounded-xl border border-electric-500/30 p-8 max-w-md w-full">
+            <h3 class="text-2xl font-bold mb-6 text-electric-300">📧 Email Proposals</h3>
+            <form @submit.prevent="sendEmail()">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Recipient Email</label>
+                    <input type="email" x-model="emailData.email" placeholder="client@company.com"
+                        class="w-full px-4 py-3 rounded-lg bg-navy-900/50 border border-electric-500/30 focus:border-electric-400 focus:outline-none"
+                        required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Message (optional)</label>
+                    <textarea x-model="emailData.message" rows="3" placeholder="Add a personal message..."
+                        class="w-full px-4 py-3 rounded-lg bg-navy-900/50 border border-electric-500/30 focus:border-electric-400 focus:outline-none"></textarea>
+                </div>
+                <div class="flex space-x-3">
+                    <button type="submit"
+                        class="flex-1 py-3 bg-electric-500 hover:bg-electric-400 text-white font-bold rounded-lg">
+                        Send
+                    </button>
+                    <button type="button" @click="emailModal = false"
+                        class="px-6 py-3 bg-gray-600 hover:bg-gray-500 text-white rounded-lg">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function consultancyApp() {
+            return {
+                formData: {
+                    company: '',
+                    industry: '',
+                    url: '',
+                    location: 'Canada'
+                },
+                isRunning: false,
+                isLoading: true,
+                history: [],
+                currentJob: {
+                    job_id: null,
+                    phase: 'Initializing',
+                    progress: 0
+                },
+                emailModal: false,
+                selectedJob: null,
+                emailData: {
+                    email: '',
+                    message: ''
+                },
+
+                init() {
+                    this.loadHistory();
+                },
+
+                async runConsultancy() {
+                    if (!this.formData.company) return;
+
+                    this.isRunning = true;
+                    this.currentJob = { job_id: null, phase: 'Starting', progress: 5 };
+
+                    try {
+                        const response = await fetch('/api/consultancy/run', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(this.formData)
+                        });
+
+                        const data = await response.json();
+
+                        if (data.success) {
+                            this.currentJob.job_id = data.job_id;
+                            this.monitorProgress(data.job_id);
+                        } else {
+                            alert('Error: ' + data.error);
+                            this.isRunning = false;
+                        }
+                    } catch (error) {
+                        alert('Error starting consultancy: ' + error.message);
+                        this.isRunning = false;
+                    }
+                },
+
+                async monitorProgress(jobId) {
+                    const checkStatus = async () => {
+                        try {
+                            const response = await fetch(`/api/consultancy/status/${jobId}`);
+                            const data = await response.json();
+
+                            if (data.success) {
+                                this.currentJob.phase = data.phase;
+                                this.currentJob.progress = data.progress;
+
+                                if (data.status === 'complete' || data.status === 'error') {
+                                    this.isRunning = false;
+                                    this.loadHistory();
+                                    this.formData = { company: '', industry: '', url: '', location: 'Canada' };
+
+                                    if (data.status === 'complete') {
+                                        alert('✅ Consultancy complete!');
+                                    } else {
+                                        alert('❌ Error: ' + data.error);
+                                    }
+                                } else {
+                                    setTimeout(checkStatus, 3000); // Check every 3 seconds
+                                }
+                            }
+                        } catch (error) {
+                            console.error('Status check error:', error);
+                            setTimeout(checkStatus, 5000);
+                        }
+                    };
+
+                    checkStatus();
+                },
+
+                async loadHistory() {
+                    this.isLoading = true;
+                    try {
+                        const response = await fetch('/api/consultancy/history');
+                        const data = await response.json();
+
+                        if (data.success) {
+                            this.history = data.history;
+                        }
+                    } catch (error) {
+                        console.error('Load history error:', error);
+                    } finally {
+                        this.isLoading = false;
+                    }
+                },
+
+                async downloadProposal(jobId, type) {
+                    window.location.href = `/api/consultancy/proposals/${jobId}/${type}`;
+                },
+
+                async sendEmail() {
+                    if (!this.selectedJob) return;
+
+                    try {
+                        const response = await fetch(`/api/consultancy/email/${this.selectedJob.job_id}`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                email: this.emailData.email,
+                                proposals: ['executive', 'technical', 'financial', 'funding'],
+                                message: this.emailData.message
+                            })
+                        });
+
+                        const data = await response.json();
+
+                        if (data.success) {
+                            alert('✅ Proposals sent successfully!');
+                            this.emailModal = false;
+                            this.emailData = { email: '', message: '' };
+                        } else {
+                            alert('Error: ' + data.error);
+                        }
+                    } catch (error) {
+                        alert('Error sending email: ' + error.message);
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Dorado Gold and Silver - InnovLead Partnership Proposal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            text-align: center;
+            page-break-after: always;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            margin: 30px 0 15px;
+            color: #00D4FF;
+        }
+
+        p,
+        li {
+            font-size: 1.3em;
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+
+        .highlight {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .stat-box {
+            background: rgba(255, 215, 0, 0.1);
+            border: 3px solid #FFD700;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px;
+            min-width: 300px;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .stat-number {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .stat-label {
+            font-size: 1.2em;
+            color: #00D4FF;
+            margin-top: 10px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 40px 0;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        .card {
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid #00D4FF;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: left;
+        }
+
+        .card h3 {
+            color: #FFD700;
+            margin-top: 0;
+        }
+
+        table {
+            width: 100%;
+            max-width: 1000px;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: rgba(255, 215, 0, 0.2);
+            color: #FFD700;
+            padding: 20px;
+            font-size: 1.3em;
+            text-align: left;
+        }
+
+        td {
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.2em;
+        }
+
+        tr:hover {
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .checkmark {
+            color: #00FF00;
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .logo {
+            font-size: 5em;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #00D4FF;
+            margin-bottom: 40px;
+        }
+
+        ul {
+            list-style: none;
+            text-align: left;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        ul li {
+            margin: 15px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        ul li:before {
+            content: "💎";
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+        }
+
+        .emphasis {
+            background: rgba(255, 215, 0, 0.2);
+            padding: 30px;
+            border-left: 5px solid #FFD700;
+            margin: 30px 0;
+            text-align: left;
+            max-width: 1000px;
+        }
+
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #1a1a2e;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+        }
+
+        @media print {
+            .slide {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SLIDE 1: Title -->
+    <div class="slide">
+        <div class="logo">💎</div>
+        <h1>El Dorado Gold and Silver</h1>
+        <p class="subtitle">Strategic Partnership Proposal</p>
+        <div class="stat-box">
+            <div class="stat-number">$440K</div>
+            <div class="stat-label">Year 1 Revenue</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">160-188%</div>
+            <div class="stat-label">Return on Investment</div>
+        </div>
+        <p style="margin-top: 50px; font-size: 1.2em;">Presented by: <span class="highlight">William Meléndez Salas,
+                MBA</span><br>
+            InnovLead Canada Inc.</p>
+    </div>
+
+    <!-- SLIDE 2: The Opportunity -->
+    <div class="slide">
+        <h2>The Market Opportunity</h2>
+        <div class="grid-3">
+            <div class="stat-box">
+                <div class="stat-number">$4.2B</div>
+                <div class="stat-label">Canadian Jewelry Market</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">$680M</div>
+                <div class="stat-label">Silver & Gold Segment</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">22%</div>
+                <div class="stat-label">Online Penetration</div>
+            </div>
+        </div>
+        <div class="emphasis">
+            <p class="highlight" style="font-size: 1.5em;">The Canadian gold and silver jewelry market is growing at
+                6.2% annually with accelerating online adoption.</p>
+            <p style="margin-top: 20px;">El Dorado enters at the perfect inflection point to capture market share.</p>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: The Market Gap -->
+    <div class="slide">
+        <h2>Why We Win: The Market Gap</h2>
+        <p style="font-size: 1.4em; margin-bottom: 40px;">We analyzed 5 major competitors and found a critical gap:</p>
+        <table>
+            <tr>
+                <th>What Market Wants</th>
+                <th>Who Delivers It?</th>
+                <th>El Dorado Position</th>
+            </tr>
+            <tr>
+                <td><strong>Professional Quality</strong></td>
+                <td>✅ Mejuri (expensive)<br>❌ Etsy (inconsistent)</td>
+                <td class="highlight">✅ YES</td>
+            </tr>
+            <tr>
+                <td><strong>Personal Touch</strong></td>
+                <td>✅ Etsy<br>❌ Amazon, Mejuri</td>
+                <td class="highlight">✅ YES</td>
+            </tr>
+            <tr>
+                <td><strong>Fair Pricing</strong></td>
+                <td>✅ Amazon<br>❌ Mejuri, Brilliant Earth</td>
+                <td class="highlight">✅ YES</td>
+            </tr>
+            <tr>
+                <td><strong>Modern Technology</strong></td>
+                <td>✅ Mejuri, Amazon<br>❌ Etsy, People's</td>
+                <td class="highlight">✅ YES</td>
+            </tr>
+        </table>
+        <p class="highlight" style="font-size: 1.8em; margin-top: 40px;">Nobody has all four. This is El Dorado's
+            position.</p>
+    </div>
+
+    <!-- SLIDE 4: Partnership Structure -->
+    <div class="slide">
+        <h2>The Partnership Structure</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>🏆 El Dorado Focuses On:</h3>
+                <ul>
+                    <li>Production excellence</li>
+                    <li>Craftsmanship & quality</li>
+                    <li>Inventory management</li>
+                    <li>Shipping & fulfillment</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>🚀 InnovLead Delivers:</h3>
+                <ul>
+                    <li>E-commerce platform</li>
+                    <li>Marketing automation</li>
+                    <li>SEO & content strategy</li>
+                    <li>Process automation</li>
+                    <li>Compliance (PIPEDA/CASL)</li>
+                    <li>Paid advertising</li>
+                    <li>Data analytics</li>
+                </ul>
+            </div>
+        </div>
+        <div class="emphasis" style="text-align: center;">
+            <p class="highlight" style="font-size: 1.6em;">You focus on craft. We handle everything digital.</p>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: Financial Overview -->
+    <div class="slide">
+        <h2>The Numbers That Matter</h2>
+        <div class="grid-3">
+            <div class="stat-box">
+                <div class="stat-number">$124K</div>
+                <div class="stat-label">Total Investment</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">-$23-38K</div>
+                <div class="stat-label">Grants & Credits</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">$94-101K</div>
+                <div class="stat-label">Net Investment</div>
+            </div>
+        </div>
+        <h3 style="margin-top: 50px;">Revenue Growth</h3>
+        <div class="grid-3">
+            <div class="stat-box">
+                <div class="stat-number">$440K</div>
+                <div class="stat-label">Year 1</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">$850K</div>
+                <div class="stat-label">Year 2 (93% growth)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">$1.4M</div>
+                <div class="stat-label">Year 3 (65% growth)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: Profitability -->
+    <div class="slide">
+        <h2>Year 1 Profitability</h2>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td>Revenue</td>
+                <td class="highlight">$439,650</td>
+            </tr>
+            <tr>
+                <td>Gross Profit (65% margin)</td>
+                <td class="highlight">$285,772</td>
+            </tr>
+            <tr>
+                <td>Operating Expenses</td>
+                <td>$124,000</td>
+            </tr>
+            <tr>
+                <td><strong>Net Profit</strong></td>
+                <td class="highlight" style="font-size: 1.5em;">$161,772</td>
+            </tr>
+            <tr>
+                <td><strong>Net Margin</strong></td>
+                <td class="highlight">37%</td>
+            </tr>
+            <tr>
+                <td><strong>ROI</strong></td>
+                <td class="highlight" style="font-size: 1.5em;">160-188%</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- SLIDE 7: Quarterly Revenue -->
+    <div class="slide">
+        <h2>Revenue by Quarter</h2>
+        <table>
+            <tr>
+                <th>Quarter</th>
+                <th>Monthly Revenue</th>
+                <th>Orders/Month</th>
+                <th>Quarterly Total</th>
+            </tr>
+            <tr>
+                <td><strong>Q1</strong></td>
+                <td>$21,600</td>
+                <td>120</td>
+                <td class="highlight">$64,800</td>
+            </tr>
+            <tr>
+                <td><strong>Q2</strong></td>
+                <td>$34,200</td>
+                <td>180</td>
+                <td class="highlight">$102,600</td>
+            </tr>
+            <tr>
+                <td><strong>Q3</strong></td>
+                <td>$27,750</td>
+                <td>150</td>
+                <td class="highlight">$83,250</td>
+            </tr>
+            <tr>
+                <td><strong>Q4 (Holiday)</strong></td>
+                <td>$63,000</td>
+                <td>300</td>
+                <td class="highlight">$189,000</td>
+            </tr>
+            <tr style="border-top: 3px solid #FFD700;">
+                <td><strong>YEAR 1 TOTAL</strong></td>
+                <td colspan="2"></td>
+                <td class="highlight" style="font-size: 1.5em;">$439,650</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- SLIDE 8: 8-Dimension Solution -->
+    <div class="slide">
+        <h2>What We Build: 8-Dimension Solution</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>1. E-Commerce Platform</h3>
+                <p>Shopify Plus, mobile-optimized, PCI compliant, multi-currency</p>
+            </div>
+            <div class="card">
+                <h3>2. Process Automation</h3>
+                <p>Order sync, inventory management, shipping labels, notifications<br><span class="highlight">Saves
+                        $60K/year</span></p>
+            </div>
+            <div class="card">
+                <h3>3. Marketing Automation</h3>
+                <p>15+ email sequences, SMS, social media auto-posting, loyalty program</p>
+            </div>
+            <div class="card">
+                <h3>4. SEO & Content</h3>
+                <p>2 blog posts/week, video content, 15K monthly visitors by Month 12</p>
+            </div>
+            <div class="card">
+                <h3>5. Campaign Calendar</h3>
+                <p>Q1: Valentine's | Q2: Mother's Day | Q3: Anniversary | Q4: Holiday</p>
+            </div>
+            <div class="card">
+                <h3>6. Compliance & Security</h3>
+                <p>PIPEDA, CASL, PCI DSS, ISO 27001 certified</p>
+            </div>
+            <div class="card">
+                <h3>7. Customer Experience</h3>
+                <p>AI chatbot, AR try-on, live consultations, production tracking</p>
+            </div>
+            <div class="card">
+                <h3>8. Funding & Incentives</h3>
+                <p>CDAP grant ($15K), SR&ED credits ($8-15K)<br><span class="highlight">Total: $23-38K</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: Competitive Advantages -->
+    <div class="slide">
+        <h2>Our 5 Competitive Advantages</h2>
+        <div class="grid-2" style="text-align: left;">
+            <div class="card">
+                <h3>🎯 Technology-Enhanced Craft</h3>
+                <p>Artisan quality + AR try-on + production tracking + automated personalization</p>
+                <p class="highlight">Beats Etsy on tech, Amazon on craft, Mejuri on price</p>
+            </div>
+            <div class="card">
+                <h3>📹 Transparent Production</h3>
+                <p>Real-time production updates + behind-the-scenes videos + meet-the-maker stories</p>
+                <p class="highlight">Unique - no competitor does this at scale</p>
+            </div>
+            <div class="card">
+                <h3>💰 Accessible Premium</h3>
+                <p>$80-180 price range + ethical sourcing + professional quality</p>
+                <p class="highlight">Ethical like Brilliant Earth, priced fairly</p>
+            </div>
+            <div class="card">
+                <h3>⚡ Automation-Powered</h3>
+                <p>93% reduction in manual processes + 24/7 customer service + infinite scalability</p>
+                <p class="highlight">Eliminates bottlenecks, grows without hiring</p>
+            </div>
+        </div>
+        <div class="card" style="margin-top: 30px;">
+            <h3>🛡️ Compliance Shield</h3>
+            <p>PIPEDA/CASL/PCI built-in from day one</p>
+            <p class="highlight">No fines, no breaches, no reputation damage</p>
+        </div>
+    </div>
+
+    <!-- SLIDE 10: Implementation Timeline -->
+    <div class="slide">
+        <h2>Implementation Roadmap</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>📅 Phase 1: Foundation</h3>
+                <p><strong>Months 1-2</strong></p>
+                <ul style="font-size: 0.9em;">
+                    <li>Discovery & strategy</li>
+                    <li>Platform setup</li>
+                    <li>Automation infrastructure</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>📈 Phase 2: Growth</h3>
+                <p><strong>Months 3-6</strong></p>
+                <ul style="font-size: 0.9em;">
+                    <li>SEO optimization</li>
+                    <li>Marketing automation</li>
+                    <li>Paid advertising launch</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>🚀 Phase 3: Scale</h3>
+                <p><strong>Months 7-12</strong></p>
+                <ul style="font-size: 0.9em;">
+                    <li>AR try-on</li>
+                    <li>Virtual consultations</li>
+                    <li>B2B wholesale portal</li>
+                    <li>US expansion prep</li>
+                </ul>
+            </div>
+        </div>
+        <div class="emphasis" style="margin-top: 50px;">
+            <p class="highlight" style="font-size: 1.4em;">Timeline: 90 days to launch, 180 days to first major campaign
+            </p>
+        </div>
+    </div>
+
+    <!-- SLIDE 11: Success Metrics -->
+    <div class="slide">
+        <h2>Success Metrics & KPIs</h2>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Month 3</th>
+                <th>Month 6</th>
+                <th>Month 12</th>
+            </tr>
+            <tr>
+                <td><strong>Revenue</strong></td>
+                <td>$21,600</td>
+                <td>$34,200</td>
+                <td class="highlight">$63,000</td>
+            </tr>
+            <tr>
+                <td><strong>Orders</strong></td>
+                <td>120</td>
+                <td>180</td>
+                <td class="highlight">300</td>
+            </tr>
+            <tr>
+                <td><strong>Conversion Rate</strong></td>
+                <td>1.8%</td>
+                <td>2.2%</td>
+                <td class="highlight">3.0%</td>
+            </tr>
+            <tr>
+                <td><strong>Email List</strong></td>
+                <td>1,200</td>
+                <td>3,500</td>
+                <td class="highlight">12,000</td>
+            </tr>
+            <tr>
+                <td><strong>Organic Traffic</strong></td>
+                <td>2,000</td>
+                <td>4,500</td>
+                <td class="highlight">15,000</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- SLIDE 12: Why InnovLead -->
+    <div class="slide">
+        <h2>Why InnovLead Canada?</h2>
+        <div class="emphasis" style="text-align: center;">
+            <h3 style="color: #FFD700;">William Meléndez Salas, MBA</h3>
+            <p style="font-size: 1.3em; margin: 20px 0;">CEO & Principal – InnovLead Canada Inc.</p>
+        </div>
+        <div class="grid-2" style="text-align: left;">
+            <div class="card">
+                <h3>Credentials</h3>
+                <ul style="font-size: 1em;">
+                    <li>ISO 27001 Lead Implementer</li>
+                    <li>PIPEDA, Loi 25, CASL Expert</li>
+                    <li>MBA in Big Data & PM</li>
+                    <li>10× Judo Champion</li>
+                    <li>Quant Trader (18% CAGR)</li>
+                    <li>6-time Published Author</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Track Record</h3>
+                <ul style="font-size: 1em;">
+                    <li>+30% YoY InnovLead growth</li>
+                    <li>10 years AI-led digitalization</li>
+                    <li>ISO 27001 certified ops</li>
+                    <li>Enterprise security & compliance</li>
+                    <li>Growth marketing expertise</li>
+                </ul>
+            </div>
+        </div>
+        <p class="highlight" style="font-size: 1.4em; margin-top: 40px;">Not a vendor, a strategic partner. We succeed
+            when you succeed.</p>
+    </div>
+
+    <!-- SLIDE 13: Investment Summary -->
+    <div class="slide">
+        <h2>Investment Summary</h2>
+        <div class="grid-3">
+            <div class="stat-box">
+                <div class="stat-label">You Invest</div>
+                <div class="stat-number">$94-101K</div>
+                <p style="font-size: 0.9em; margin-top: 10px;">(after $23-38K in grants)</p>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">You Get</div>
+                <div class="stat-number">$440K</div>
+                <p style="font-size: 0.9em; margin-top: 10px;">Year 1 Revenue</p>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Net Profit</div>
+                <div class="stat-number">$162K</div>
+                <p style="font-size: 0.9em; margin-top: 10px;">37% margin</p>
+            </div>
+        </div>
+        <div class="emphasis" style="margin-top: 50px;">
+            <h3 style="text-align: center;">What You Save:</h3>
+            <ul style="text-align: center; list-style: none;">
+                <li><span class="highlight">$60,000/year</span> in manual labor (automated)</li>
+                <li><span class="highlight">$10K-100K+</span> in compliance fines (zero violations)</li>
+                <li><span class="highlight">50-70%</span> wasted ad spend (optimized)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SLIDE 14: The Bottom Line -->
+    <div class="slide">
+        <h2>The Bottom Line</h2>
+        <div class="emphasis">
+            <p style="font-size: 1.5em; margin-bottom: 30px;">This isn't just an e-commerce store. This is:</p>
+            <ul style="font-size: 1.3em;">
+                <li>A <span class="highlight">compliance-first</span> operation (no fines, no breaches)</li>
+                <li>An <span class="highlight">automation-powered</span> growth engine (93% efficiency gain)</li>
+                <li>A <span class="highlight">data-driven</span> marketing machine (quant optimization)</li>
+                <li>A <span class="highlight">funding-intelligent</span> business ($23-38K in grants)</li>
+                <li>A <span class="highlight">strategic partnership</span> (aligned success)</li>
+            </ul>
+        </div>
+        <h3 style="margin-top: 60px; font-size: 2.5em;">El Dorado + InnovLead = Market Dominance</h3>
+        <p style="font-size: 1.4em; margin-top: 30px;">Your competitors have either strong brand OR strong
+            tech.<br><span class="highlight">You'll have both.</span></p>
+    </div>
+
+    <!-- SLIDE 15: Next Steps -->
+    <div class="slide">
+        <h2>Next Steps</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>1️⃣ Discovery Session</h3>
+                <p><strong>90 minutes</strong></p>
+                <p>Deep-dive into business goals, technical requirements, timeline alignment</p>
+            </div>
+            <div class="card">
+                <h3>2️⃣ Funding Applications</h3>
+                <p><strong>1 week</strong></p>
+                <p>CDAP grant submission, SR&ED documentation, BDC financing intro</p>
+            </div>
+            <div class="card">
+                <h3>3️⃣ Contract & Kickoff</h3>
+                <p><strong>Day 14-21</strong></p>
+                <p>Partnership agreement, Phase 1 launch, team introductions</p>
+            </div>
+        </div>
+        <div class="emphasis" style="margin-top: 50px; text-align: center;">
+            <h3>Timeline to Market:</h3>
+            <p style="font-size: 1.3em;">
+                <span class="highlight">Day 0:</span> Proposal accepted<br>
+                <span class="highlight">Day 21:</span> Kickoff & Phase 1 begins<br>
+                <span class="highlight">Day 90:</span> Platform live, automation running<br>
+                <span class="highlight">Day 180:</span> First major campaign (Holiday 2025)
+            </p>
+        </div>
+    </div>
+
+    <!-- SLIDE 16: Contact & Close -->
+    <div class="slide">
+        <div class="logo">💎</div>
+        <h1 style="font-size: 3em;">Let's Build Together</h1>
+        <p style="font-size: 1.5em; margin: 40px 0;">Canada's leading gold & silver jewelry e-commerce brand</p>
+
+        <div class="card" style="display: inline-block; text-align: left; margin: 40px 0;">
+            <h3>Contact Information</h3>
+            <p style="font-size: 1.2em;">
+                <strong>William Meléndez Salas, MBA</strong><br>
+                CEO & Principal – InnovLead Canada Inc.<br><br>
+                📧 wms090807@gmail.com<br>
+                🔗 linkedin.com/in/william-m-salas<br>
+                📅 calendly.com/innovlead-ca
+            </p>
+        </div>
+
+        <a href="mailto:wms090807@gmail.com" class="button">Schedule Discovery Session</a>
+
+        <p style="margin-top: 60px; font-size: 1.3em; font-style: italic;">
+            "The consultancy is the moat.<br>
+            The automation is the product.<br>
+            The vault is the asset."
+        </p>
+    </div>
+
+</body>
+
+</html>

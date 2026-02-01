@@ -1,0 +1,25 @@
+{
+    "name": "content-creation",
+    "version": "1.0.0",
+    "description": "Automated social media content generation for tech education",
+    "status": "active",
+    "dependencies": [
+        "core.lib.api_client",
+        "core.lib.logger",
+        "core.lib.file_utils"
+    ],
+    "mcp_servers": [],
+    "entry_point": "execution/main_content_pipeline.py",
+    "apis_used": [
+        "GEMINI_API_KEY",
+        "KEI_AI_API_KEY",
+        "PERPLEXITY_API_KEY"
+    ],
+    "outputs": {
+        "images": "outputs/final_pictures/",
+        "content": ".tmp/content/",
+        "research": ".tmp/research/"
+    },
+    "author": "InnovLead",
+    "last_updated": "2025-12-11"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "mcp-integrations",
+  "version": "1.0.0",
+  "description": "Layer 3 - Context access via MCP servers (Database, FS, Search, Workflows)",
+  "status": "active",
+  "dependencies": [
+    "core.lib.api_client",
+    "core.lib.logger"
+  ],
+  "mcp_servers": [
+    "replit-db",
+    "replit-fs",
+    "brave-search",
+    "n8n-cloud"
+  ],
+  "entry_point": "execution/test_all_mcps.py",
+  "apis_used": [
+    "REPLIT_TOKEN",
+    "BRAVE_API_KEY",
+    "N8N_API_KEY",
+    "N8N_BASE_URL"
+  ],
+  "author": "InnovLead",
+  "last_updated": "2025-12-11"
+}

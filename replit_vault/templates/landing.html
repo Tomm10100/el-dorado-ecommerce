@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovLead Vault - AI-Powered Automation Suite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0a1128',
+                            800: '#001f54',
+                            700: '#034078',
+                        },
+                        electric: {
+                            500: '#1282A2',
+                            400: '#0091C7',
+                            300: '#00B4D8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a1128 0%, #001f54 100%);
+        }
+
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 180, 216, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(0, 180, 216, 0.8);
+            }
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen text-white flex items-center justify-center">
+
+    <div class="container mx-auto px-6 py-12 text-center">
+
+        <!-- Logo -->
+        <div class="mb-8 flex justify-center">
+            <div class="bg-white rounded-lg p-6 shadow-2xl">
+                <svg class="w-24 h-24" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Brain Icon Placeholder -->
+                    <rect width="120" height="120" fill="#034078" />
+                    <text x="60" y="70" font-size="48" fill="white" text-anchor="middle" font-weight="bold">IL</text>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Badge -->
+        <div class="mb-6 flex justify-center">
+            <div
+                class="inline-flex items-center px-4 py-2 bg-electric-500/20 border border-electric-300/50 rounded-full text-electric-300 text-sm font-semibold">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                AI-Powered Automation Suite
+            </div>
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="text-6xl font-bold mb-4">
+            InnovLead <span class="text-electric-300">Vault</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-xl text-gray-300 mb-4 max-w-3xl mx-auto">
+            Your multi-dimensional AI consultancy and content creation platform.
+        </p>
+        <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+            Generate proposals, create visuals, and automate your business.
+        </p>
+
+        <!-- CTA Button -->
+        <a href="/dashboard"
+            class="inline-flex items-center px-8 py-4 bg-electric-500 hover:bg-electric-400 text-white font-bold rounded-lg transition-all hover-lift pulse-glow text-lg">
+            Enter the Vault
+            <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6">
+                </path>
+            </svg>
+        </a>
+
+        <!-- Feature Icons -->
+        <div class="mt-20 grid grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div class="bg-navy-800/30 backdrop-blur-sm rounded-lg border border-electric-500/20 p-6">
+                <div class="text-5xl mb-3">🎯</div>
+                <h3 class="text-lg font-semibold text-electric-300">Strategic Consulting</h3>
+                <p class="text-sm text-gray-400 mt-2">Multi-dimensional research & proposals</p>
+            </div>
+            <div class="bg-navy-800/30 backdrop-blur-sm rounded-lg border border-electric-500/20 p-6">
+                <div class="text-5xl mb-3">⚡</div>
+                <h3 class="text-lg font-semibold text-electric-300">AI Content Creation</h3>
+                <p class="text-sm text-gray-400 mt-2">Videos, images, and animations</p>
+            </div>
+            <div class="bg-navy-800/30 backdrop-blur-sm rounded-lg border border-electric-500/20 p-6">
+                <div class="text-5xl mb-3">📱</div>
+                <h3 class="text-lg font-semibold text-electric-300">Media Library</h3>
+                <p class="text-sm text-gray-400 mt-2">Organized content gallery</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

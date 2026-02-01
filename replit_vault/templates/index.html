@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovLead Vault - Command Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0a1128',
+                            800: '#001f54',
+                            700: '#034078',
+                        },
+                        electric: {
+                            500: '#1282A2',
+                            400: '#0091C7',
+                            300: '#00B4D8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a1128 0%, #001f54 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 180, 216, 0.3);
+        }
+
+        .glow {
+            box-shadow: 0 0 20px rgba(0, 180, 216, 0.5);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen text-white">
+
+    <!-- Header -->
+    <header class="border-b border-electric-500/30 bg-navy-900/50 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="text-3xl">🏛️</div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-electric-300">InnovLead Vault</h1>
+                        <p class="text-sm text-gray-400">Multi-Dimensional AI Consultancy System</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm flex items-center">
+                        <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                        Online
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Welcome Section -->
+        <div class="mb-12 text-center">
+            <h2 class="text-4xl font-bold mb-4">
+                The <span class="text-electric-300">Vault</span>
+            </h2>
+            <p class="text-gray-400 text-lg">
+                Your central command center for all automation systems
+            </p>
+        </div>
+
+        <!-- Module Cards Grid -->
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+            <!-- Consultancy Engine Card -->
+            <a href="/consultancy"
+                class="card-hover block bg-navy-800/50 backdrop-blur-sm rounded-xl border border-electric-500/30 p-8">
+                <div class="flex items-start justify-between mb-6">
+                    <div class="text-6xl">🎯</div>
+                    <span class="px-3 py-1 bg-electric-500/20 text-electric-300 rounded-full text-xs font-semibold">
+                        V2.0
+                    </span>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 text-electric-300">Consultancy Engine</h3>
+                <p class="text-gray-400 mb-6">
+                    Multi-dimensional research, funding intelligence, and automated proposal generation.
+                    Position yourself as a strategic advisor.
+                </p>
+                <div class="space-y-2 text-sm">
+                    <div class="flex items-center text-gray-300">
+                        <span class="mr-2">✓</span>
+                        6-dimension research analysis
+                    </div>
+                    <div class="flex items-center text-gray-300">
+                        <span class="mr-2">✓</span>
+                        Funding intelligence ($15K-$100K+)
+                    </div>
+                    <div class="flex items-center text-gray-300">
+                        <span class="mr-2">✓</span>
+                        4 stakeholder-specific proposals
+                    </div>
+                </div>
+                <div class="mt-6 flex items-center text-electric-300 font-semibold">
+                    Launch Module
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Content Creation Card -->
+            <a href="/content"
+                class="card-hover block bg-navy-800/50 backdrop-blur-sm rounded-xl border border-electric-500/30 p-8">
+                <div class="flex items-start justify-between mb-6">
+                    <div class="text-6xl">📱</div>
+                    <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-semibold">
+                        ACTIVE
+                    </span>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 text-electric-300">Content Pipeline</h3>
+                <p class="text-gray-400 mb-6">
+                    Automated social media content generation. Discover topics, research, generate ELI5 posts,
+                    create infographics, and publish.
+                </p>
+                <div class="space-y-2 text-sm">
+                    <div class="flex items-center text-gray-300">
+                        <span class="mr-2">✓</span>
+                        Trending topic discovery
+                    </div>
+                    <div class="flex items-center text-gray-300">
+                        <span class="mr-2">✓</span>
+                        AI-powered content generation
+                    </div>
+                    <div class="flex items-center text-gray-300">
+                        <span class="mr-2">✓</span>
+                        Instagram/TikTok ready images
+                    </div>
+                </div>
+                <div class="mt-6 flex items-center text-electric-300 font-semibold">
+                    Launch Module
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Module Manager Card -->
+            <a href="/modules"
+                class="card-hover block bg-navy-800/50 backdrop-blur-sm rounded-xl border border-electric-500/30 p-8">
+                <div class="flex items-start justify-between mb-6">
+                    <div class="text-6xl">🔧</div>
+                    <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs font-semibold">
+                        SYSTEM
+                    </span>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 text-electric-300">Module Manager</h3>
+                <p class="text-gray-400 mb-6">
+                    View and manage all Antigravity modules. Check status, view logs,
+                    and monitor system health.
+                </p>
+                <div class="space-y-2 text-sm">
+                    <div class="flex items-center text-gray-300">
+                        <span class="mr-2">✓</span>
+                        List all modules
+                    </div>
+                    <div class="flex items-center text-gray-300">
+                        <span class="mr-2">✓</span>
+                        Monitor status & health
+                    </div>
+                    <div class="flex items-center text-gray-300">
+                        <span class="mr-2">✓</span>
+                        View execution logs
+                    </div>
+                </div>
+                <div class="mt-6 flex items-center text-electric-300 font-semibold">
+                    Launch Module
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Knowledge Base Card -->
+            <div
+                class="bg-navy-800/30 backdrop-blur-sm rounded-xl border border-electric-500/20 p-8 relative overflow-hidden">
+                <div class="absolute top-4 right-4">
+                    <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs font-semibold">
+                        COMING SOON
+                    </span>
+                </div>
+                <div class="text-6xl mb-6 opacity-50">📚</div>
+                <h3 class="text-2xl font-bold mb-3 text-gray-400">Knowledge Base</h3>
+                <p class="text-gray-500 mb-6">
+                    Industry playbooks, templates, and best practices.
+                    Build your vault of proven strategies.
+                </p>
+                <div class="space-y-2 text-sm">
+                    <div class="flex items-center text-gray-500">
+                        <span class="mr-2">○</span>
+                        Industry-specific templates
+                    </div>
+                    <div class="flex items-center text-gray-500">
+                        <span class="mr-2">○</span>
+                        Funding database
+                    </div>
+                    <div class="flex items-center text-gray-500">
+                        <span class="mr-2">○</span>
+                        Best practices library
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- System Stats -->
+        <div class="mt-16 max-w-5xl mx-auto">
+            <div class="grid grid-cols-3 gap-6">
+                <div class="bg-navy-800/30 backdrop-blur-sm rounded-lg border border-electric-500/20 p-6 text-center">
+                    <div class="text-3xl font-bold text-electric-300">3</div>
+                    <div class="text-sm text-gray-400 mt-1">Active Modules</div>
+                </div>
+                <div class="bg-navy-800/30 backdrop-blur-sm rounded-lg border border-electric-500/20 p-6 text-center">
+                    <div class="text-3xl font-bold text-green-400">100%</div>
+                    <div class="text-sm text-gray-400 mt-1">System Health</div>
+                </div>
+                <div class="bg-navy-800/30 backdrop-blur-sm rounded-lg border border-electric-500/20 p-6 text-center">
+                    <div class="text-3xl font-bold text-blue-400">$0</div>
+                    <div class="text-sm text-gray-400 mt-1">Monthly Cost</div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-20 border-t border-electric-500/30 bg-navy-900/50 backdrop-blur-sm py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400 text-sm">
+            <p>InnovLead Vault v1.0 • Built on Antigravity Architecture</p>
+            <p class="mt-2">The consultancy is the moat. The automation is the product. The vault is the asset.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

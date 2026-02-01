@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Dorado 111 - Strategic Consultancy Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #f5f5f5;
+            color: #1a1a1a;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+        }
+
+        /* Header - Corporate Style */
+        .header {
+            background: #003B73;
+            color: white;
+            padding: 80px 60px 60px;
+            border-bottom: 4px solid #00A8E8;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .header .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        .report-meta {
+            text-align: right;
+            font-size: 0.95em;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .report-meta strong {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            opacity: 1;
+        }
+
+        /* Executive Summary Bar */
+        .executive-bar {
+            background: #001F3F;
+            padding: 40px 60px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .metric-label {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #999;
+            margin-bottom: 15px;
+            font-family: 'Arial', sans-serif;
+            font-weight: 600;
+        }
+
+        .metric-value {
+            font-size: 3.2em;
+            font-weight: 300;
+            color: #00A8E8;
+            margin-bottom: 10px;
+            font-family: 'Georgia', serif;
+        }
+
+        .metric-value.alert {
+            color: #FF6B6B;
+        }
+
+        .metric-sublabel {
+            font-size: 0.9em;
+            color: #ccc;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 60px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #003B73;
+        }
+
+        .section-number {
+            font-size: 0.85em;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-family: 'Arial', sans-serif;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            font-weight: 300;
+            color: #1a1a1a;
+            letter-spacing: 1px;
+        }
+
+        /* Disclaimer Box */
+        .disclaimer {
+            background: #E3F2FD;
+            border-left: 4px solid #00A8E8;
+            padding: 25px;
+            margin: 30px 0;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* Overview Box */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .overview-card {
+            background: #fafafa;
+            padding: 40px;
+            border-left: 3px solid #00A8E8;
+        }
+
+        .overview-card h3 {
+            font-size: 1.4em;
+            font-weight: 400;
+            margin-bottom: 25px;
+            color: #1a1a1a;
+        }
+
+        .overview-card .data-row {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .overview-card .data-row:last-child {
+            border-bottom: none;
+        }
+
+        .overview-card .data-label {
+            flex: 0 0 180px;
+            font-weight: 600;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .overview-card .data-value {
+            flex: 1;
+            color: #1a1a1a;
+        }
+
+        .strength-list {
+            margin-top: 30px;
+        }
+
+        .strength-item {
+            padding: 18px 0;
+            padding-left: 30px;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .strength-item:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00A8E8;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* Critical Issues */
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .issue-card {
+            background: #fff;
+            border: 2px solid #FF6B6B;
+            padding: 35px;
+        }
+
+        .issue-card h4 {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #FF6B6B;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .issue-card p {
+            color: #4a4a4a;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        /* Opportunities - Professional Table Style */
+        .opportunities-table {
+            margin-top: 40px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .opportunity-row {
+            display: grid;
+            grid-template-columns: 50px 2fr 3fr 1fr 1fr;
+            border-bottom: 1px solid #e0e0e0;
+            min-height: 120px;
+        }
+
+        .opportunity-row:last-child {
+            border-bottom: none;
+        }
+
+        .opportunity-row.header {
+            background: #003B73;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            font-weight: 600;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            min-height: auto;
+        }
+
+        .opportunity-cell {
+            padding: 25px 20px;
+            display: flex;
+            align-items: center;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .opportunity-cell:last-child {
+            border-right: none;
+        }
+
+        .opportunity-row.header .opportunity-cell {
+            padding: 20px;
+        }
+
+        .opportunity-number {
+            font-size: 2em;
+            font-weight: 300;
+            color: #00A8E8;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .opportunity-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #1a1a1a;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .roi-indicator {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #0077B6;
+            color: white;
+            font-size: 0.75em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 8px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .roi-indicator.medium {
+            background: #0096C7;
+        }
+
+        .investment-value {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #1a1a1a;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .payback-value {
+            font-size: 1.1em;
+            color: #666;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Funding Section */
+        .funding-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .funding-card {
+            border: 2px solid #e0e0e0;
+            padding: 40px;
+            background: white;
+        }
+
+        .funding-card h4 {
+            font-size: 1.5em;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .funding-amount {
+            font-size: 3em;
+            font-weight: 300;
+            color: #00A8E8;
+            margin: 25px 0;
+        }
+
+        .funding-card p {
+            color: #4a4a4a;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .funding-status {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #E3F2FD;
+            color: #003B73;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-top: 15px;
+            border-left: 4px solid #00A8E8;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .funding-status.requires-review {
+            border-left-color: #0096C7;
+            background: #E3F2FD;
+        }
+
+        /* Market Intelligence */
+        .intelligence-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .intelligence-card {
+            background: #fafafa;
+            padding: 35px;
+            border-top: 3px solid #003B73;
+        }
+
+        .intelligence-card h4 {
+            font-size: 0.95em;
+            font-weight: 600;
+            margin-bottom: 25px;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .intelligence-card ul {
+            list-style: none;
+        }
+
+        .intelligence-card li {
+            padding: 15px 0;
+            padding-left: 25px;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+            font-size: 0.95em;
+            color: #333;
+        }
+
+        .intelligence-card li:last-child {
+            border-bottom: none;
+        }
+
+        .intelligence-card li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #00A8E8;
+            font-weight: bold;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            background: #003B73;
+            color: white;
+            padding: 80px 60px;
+            text-align: center;
+        }
+
+        .footer-cta h2 {
+            font-size: 2.5em;
+            font-weight: 300;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .footer-cta p {
+            font-size: 1.2em;
+            margin-bottom: 50px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1em;
+            letter-spacing: 1px;
+            font-family: 'Arial', sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background: white;
+            color: #003B73;
+        }
+
+        .cta-button.primary {
+            background: #00A8E8;
+            border-color: #00A8E8;
+            color: white;
+        }
+
+        .cta-button.primary:hover {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .footer-logo {
+            margin: 40px auto;
+            max-width: 200px;
+        }
+
+        .footer-logo svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .footer-meta {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .executive-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .opportunities-table {
+                overflow-x: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 40px 30px;
+            }
+
+            .header {
+                padding: 50px 30px 40px;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .executive-bar {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+
+            .overview-grid,
+            .issues-grid,
+            .funding-grid,
+            .intelligence-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .opportunity-row {
+                grid-template-columns: 1fr;
+            }
+
+            .opportunity-cell {
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .cta-buttons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-top">
+                <div>
+                    <h1>EL DORADO 111</h1>
+                    <div class="subtitle">Strategic Consultancy & Digital Transformation Analysis</div>
+                </div>
+                <div class="report-meta">
+                    <strong>CONFIDENTIAL</strong>
+                    eldorado111.com<br>
+                    Jewelry E-commerce<br>
+                    January 26, 2026
+                </div>
+            </div>
+        </div>
+
+        <!-- Executive Metrics -->
+        <div class="executive-bar">
+            <div class="metric">
+                <div class="metric-label">Estimated Funding</div>
+                <div class="metric-value">$15K-100K</div>
+                <div class="metric-sublabel">Potential Grants (Subject to Approval)</div>
+            </div>
+
+            <div class="metric">
+                <div class="metric-label">Revenue Opportunity</div>
+                <div class="metric-value">+15-29%</div>
+                <div class="metric-sublabel">Est. AI Implementation Impact</div>
+            </div>
+
+            <div class="metric">
+                <div class="metric-label">Efficiency Potential</div>
+                <div class="metric-value">10-15hrs</div>
+                <div class="metric-sublabel">Est. Weekly Time Savings</div>
+            </div>
+
+            <div class="metric">
+                <div class="metric-label">Readiness Status</div>
+                <div class="metric-value alert">LOW</div>
+                <div class="metric-sublabel">Assessment Required</div>
+            </div>
+        </div>
+
+        <!-- Company Overview -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">Section I</div>
+                <h2 class="section-title">Company Overview & Assessment</h2>
+            </div>
+
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <h3>Company Profile</h3>
+                    <div class="data-row">
+                        <div class="data-label">Product Line</div>
+                        <div class="data-value">Lunar Elegance - 963Hz Silver Collection</div>
+                    </div>
+                    <div class="data-row">
+                        <div class="data-label">Market Position</div>
+                        <div class="data-value">New jewelry e-commerce (Est. 2025)</div>
+                    </div>
+                    <div class="data-row">
+                        <div class="data-label">Current State</div>
+                        <div class="data-value">Basic website, minimal digital presence</div>
+                    </div>
+                    <div class="data-row">
+                        <div class="data-label">Technology Gap</div>
+                        <div class="data-value">3-5 years behind industry leaders</div>
+                    </div>
+                </div>
+
+                <div class="overview-card">
+                    <h3>Strategic Advantages</h3>
+                    <div class="strength-list">
+                        <div class="strength-item">Brand new market entrant - positioned for modern trends</div>
+                        <div class="strength-item">Niche focus with premium silver jewelry offering</div>
+                        <div class="strength-item">Clear brand ownership and intellectual property (© 2025)</div>
+                        <div class="strength-item">Opportunity for rapid digital adoption without legacy constraints
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Critical Issues -->
+        <div class="section" style="background: #fafafa;">
+            <div class="section-header">
+                <div class="section-number">Section II</div>
+                <h2 class="section-title">Critical Business Challenges</h2>
+            </div>
+
+            <div class="issues-grid">
+                <div class="issue-card">
+                    <h4>Limited Digital Presence</h4>
+                    <p>Current website infrastructure lacks e-commerce best practices, advanced features, and customer
+                        engagement capabilities essential for competitive positioning.</p>
+                </div>
+
+                <div class="issue-card">
+                    <h4>Technology Deficit</h4>
+                    <p>Absence of AR/VR capabilities, AI-driven personalization, and automation systems resulting in
+                        estimated 15-29% revenue opportunity loss.</p>
+                </div>
+
+                <div class="issue-card">
+                    <h4>Strategic Uncertainty</h4>
+                    <p>Undefined marketing automation strategy and customer engagement framework beyond initial product
+                        launch phase.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Automation Opportunities -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">Section III</div>
+                <h2 class="section-title">Strategic Automation Opportunities</h2>
+            </div>
+
+            <div class="opportunities-table">
+                <div class="opportunity-row header">
+                    <div class="opportunity-cell">#</div>
+                    <div class="opportunity-cell">Initiative</div>
+                    <div class="opportunity-cell">Business Impact</div>
+                    <div class="opportunity-cell">Est. Investment</div>
+                    <div class="opportunity-cell">Est. ROI Timeline</div>
+                </div>
+
+                <div class="opportunity-row">
+                    <div class="opportunity-cell opportunity-number">1</div>
+                    <div class="opportunity-cell">
+                        <div>
+                            <div class="opportunity-title">AI-Powered Product Recommendations</div>
+                            <div class="roi-indicator">HIGH ROI</div>
+                        </div>
+                    </div>
+                    <div class="opportunity-cell">
+                        <div>
+                            Develop AI Agent using Gemini 2.0 to analyze customer behavior patterns and deliver
+                            personalized product recommendations. Industry studies suggest potential 15-29% increase in
+                            conversion rates.
+                        </div>
+                    </div>
+                    <div class="opportunity-cell">
+                        <div class="investment-value">$15K-25K</div>
+                    </div>
+                    <div class="opportunity-cell">
+                        <div class="payback-value">6-12 months</div>
+                    </div>
+                </div>
+
+                <div class="opportunity-row">
+                    <div class="opportunity-cell opportunity-number">2</div>
+                    <div class="opportunity-cell">
+                        <div>
+                            <div class="opportunity-title">Automated Social Media Pipeline</div>
+                            <div class="roi-indicator medium">MEDIUM ROI</div>
+                        </div>
+                    </div>
+                    <div class="opportunity-cell">
+                        <div>
+                            Implement n8n workflow automation for content generation, scheduling, and multi-platform
+                            distribution. Estimated 8-12 hours weekly time savings while improving brand consistency.
+                        </div>
+                    </div>
+                    <div class="opportunity-cell">
+                        <div class="investment-value">$8K-12K</div>
+                    </div>
+                    <div class="opportunity-cell">
+                        <div class="payback-value">3-6 months</div>
+                    </div>
+                </div>
+
+                <div class="opportunity-row">
+                    <div class="opportunity-cell opportunity-number">3</div>
+                    <div class="opportunity-cell">
+                        <div>
+                            <div class="opportunity-title">AR Virtual Try-On Experience</div>
+                            <div class="roi-indicator medium">MEDIUM ROI</div>
+                        </div>
+                    </div>
+                    <div class="opportunity-cell">
+                        <div>
+                            Deploy augmented reality solution using ARKit/ARCore enabling customers to visualize jewelry
+                            products. Industry data suggests potential 15-25% engagement increase and 30-40% return
+                            reduction.
+                        </div>
+                    </div>
+                    <div class="opportunity-cell">
+                        <div class="investment-value">$20K-35K</div>
+                    </div>
+                    <div class="opportunity-cell">
+                        <div class="payback-value">9-15 months</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Funding -->
+        <div class="section" style="background: #fafafa;">
+            <div class="section-header">
+                <div class="section-number">Section IV</div>
+                <h2 class="section-title">Potential Funding Opportunities</h2>
+            </div>
+
+            <div class="disclaimer">
+                <strong>Important Disclaimer:</strong> All funding amounts are estimates based on program parameters.
+                Actual eligibility and award amounts depend on detailed application review, business qualifications, and
+                program availability. Applications require documentation and are subject to approval processes.
+            </div>
+
+            <div class="funding-grid">
+                <div class="funding-card">
+                    <h4>CDAP Grant Program</h4>
+                    <div class="funding-amount">Up to $15K</div>
+                    <p>Canada Digital Adoption Program may provide funding for digital transformation strategy
+                        development. Approved applicants may access implementation loans up to $100K (subject to credit
+                        review).</p>
+                    <div class="funding-status">POTENTIALLY ELIGIBLE - APPLICATION REQUIRED</div>
+                </div>
+
+                <div class="funding-card">
+                    <h4>SR&ED Tax Credits</h4>
+                    <div class="funding-amount">Variable</div>
+                    <p>Scientific Research & Experimental Development program offers up to 35% refundable tax credit on
+                        qualifying R&D expenses. AI/AR development may qualify (requires detailed documentation and CRA
+                        approval).</p>
+                    <div class="funding-status requires-review">ELIGIBILITY ASSESSMENT NEEDED</div>
+                </div>
+
+                <div class="funding-card">
+                    <h4>IRAP Funding</h4>
+                    <div class="funding-amount">Varies</div>
+                    <p>Industrial Research Assistance Program may provide non-repayable contributions for qualified
+                        technology commercialization projects. Eligibility depends on project scope and business
+                        profile.
+                    </p>
+                    <div class="funding-status requires-review">PRELIMINARY ASSESSMENT REQUIRED</div>
+                </div>
+
+                <div class="funding-card">
+                    <h4>Provincial Digital Grants</h4>
+                    <div class="funding-amount">$5K-15K</div>
+                    <p>Various Ontario programs including Innovation Vouchers and Digital Main Street grants may be
+                        available. Each program has specific eligibility criteria and application requirements.</p>
+                    <div class="funding-status requires-review">PROGRAMS VARY - REVIEW NEEDED</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Market Intelligence -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">Section V</div>
+                <h2 class="section-title">Market Intelligence & Strategic Positioning</h2>
+            </div>
+
+            <div class="intelligence-grid">
+                <div class="intelligence-card">
+                    <h4>Industry Trends</h4>
+                    <ul>
+                        <li>AI-driven personalization influences estimated 20-30% of jewelry e-commerce sales</li>
+                        <li>AR try-on technology may reduce product returns by 30-40%</li>
+                        <li>3D printing accounts for growing percentage of custom jewelry orders</li>
+                        <li>Omnichannel strategies increasingly important for market competitiveness</li>
+                        <li>Mobile-first design critical for customer acquisition</li>
+                    </ul>
+                </div>
+
+                <div class="intelligence-card">
+                    <h4>Strategic Priorities</h4>
+                    <ul>
+                        <li>Establish robust digital presence and e-commerce infrastructure</li>
+                        <li>Evaluate AI personalization implementation feasibility</li>
+                        <li>Develop omnichannel customer engagement strategy</li>
+                        <li>Assess automation opportunities for operational efficiency</li>
+                        <li>Build data analytics capabilities for informed decision-making</li>
+                    </ul>
+                </div>
+
+                <div class="intelligence-card">
+                    <h4>Engagement Framework</h4>
+                    <ul>
+                        <li>"We can help identify potential funding opportunities for El Dorado 111"</li>
+                        <li>"AI implementation could potentially increase your revenue"</li>
+                        <li>"Your competitors have advanced digital capabilities"</li>
+                        <li>"AR try-on could differentiate Lunar Elegance collection"</li>
+                        <li>"Automation may save significant operational time"</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Footer -->
+        <div class="footer-cta">
+            <h2>Strategic Partnership Opportunity</h2>
+            <p>Preliminary digital transformation assessment with identified potential funding pathways</p>
+
+            <div class="cta-buttons">
+                <a href="#" class="cta-button primary">REQUEST DETAILED PROPOSAL</a>
+                <a href="#" class="cta-button">SCHEDULE STRATEGIC CONSULTATION</a>
+            </div>
+
+            <div class="footer-logo">
+                <img src="innovlead-logo.png" alt="InnovLead"
+                    style="max-width: 220px; height: auto; display: block; margin: 0 auto;">
+            </div>
+
+            <div class="footer-meta">
+                <strong>PREPARED BY INNOVLEAD VAULT</strong><br>
+                Strategic Consultancy & Digital Transformation Advisory<br>
+                Preliminary analysis completed in 27 seconds using AI-driven research methodology<br>
+                Document classification: Confidential - For Internal Use Only<br>
+                <em>All estimates and projections subject to detailed assessment and verification</em>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

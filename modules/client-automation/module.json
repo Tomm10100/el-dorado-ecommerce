@@ -1,0 +1,17 @@
+{
+  "name": "client-automation",
+  "version": "1.0.0",
+  "description": "Automated consultancy loops: Research, Onboarding, Proposal Generation",
+  "status": "active",
+  "dependencies": [
+    "core.lib.api_client",
+    "core.lib.logger",
+    "mcp-integrations"
+  ],
+  "apis_used": [
+    "GEMINI_API_KEY",
+    "BRAVE_API_KEY",
+    "N8N_API_KEY"
+  ],
+  "entry_point": "execution/run_consultancy_loop.py"
+}

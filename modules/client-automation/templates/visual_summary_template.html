@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{company_name}} - Executive Consultancy Summary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background: white;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 15mm;
+            margin: 0 auto;
+            background: white;
+        }
+
+        /* Header with Logo */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #003B73;
+            margin-bottom: 25px;
+        }
+
+        .logo img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .report-date {
+            text-align: right;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Title Section */
+        .title-section {
+            background: #003B73;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .title-section h1 {
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .title-section .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Key Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .metric-card {
+            background: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            border-left: 4px solid #00A8E8;
+        }
+
+        .metric-card .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .metric-card .value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .metric-card .sublabel {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .metric-card.alert .value {
+            color: #dc2626;
+        }
+
+        /* Opportunities Section */
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #003B73;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #003B73;
+        }
+
+        .opportunities {
+            display: grid;
+            gap: 15px;
+        }
+
+        .opportunity {
+            background: #fafafa;
+            border-left: 4px solid #00A8E8;
+            padding: 15px;
+            page-break-inside: avoid;
+        }
+
+        .opportunity-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .opportunity-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .roi-badge {
+            background: #0077B6;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .roi-badge.medium {
+            background: #0096C7;
+        }
+
+        .opportunity-content {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .opportunity-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .metric-item {
+            font-size: 12px;
+        }
+
+        .metric-item strong {
+            color: #000;
+            font-weight: 600;
+        }
+
+        /* Pain Points */
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .pain-point {
+            background: #fef2f2;
+            border-left: 3px solid #dc2626;
+            padding: 12px;
+        }
+
+        .pain-point-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #991b1b;
+            margin-bottom: 6px;
+        }
+
+        .pain-point-desc {
+            font-size: 11px;
+            color: #7f1d1d;
+            line-height: 1.5;
+        }
+
+        /* Funding Section */
+        .funding-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .funding-card {
+            background: #E3F2FD;
+            border: 2px solid #00A8E8;
+            padding: 15px;
+        }
+
+        .funding-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #003B73;
+            margin-bottom: 8px;
+        }
+
+        .funding-amount {
+            font-size: 28px;
+            font-weight: bold;
+            color: #00A8E8;
+            margin-bottom: 8px;
+        }
+
+        .funding-desc {
+            font-size: 11px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .funding-status {
+            margin-top: 8px;
+            padding: 6px;
+            background: #E3F2FD;
+            border-left: 3px solid #00A8E8;
+            font-size: 10px;
+            font-weight: 600;
+            color: #003B73;
+        }
+
+        /* Next Steps */
+        .next-steps {
+            background: #003B73;
+            color: white;
+            padding: 20px;
+            margin-top: 25px;
+        }
+
+        .next-steps h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .next-steps ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .next-steps li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 13px;
+        }
+
+        .next-steps li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #00A8E8;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #e5e5e5;
+            text-align: center;
+            font-size: 10px;
+            color: #666;
+        }
+
+        .footer strong {
+            color: #003B73;
+            font-size: 12px;
+        }
+
+        .footer-logo {
+            margin: 15px auto;
+            text-align: center;
+        }
+
+        .footer-logo img {
+            max-width: 180px;
+            height: auto;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                padding: 15mm;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <!-- Header with Logo -->
+        <div class="header">
+            <div class="logo"><img src="innovlead-logo.png" alt="InnovLead"></div>
+            <div class="report-date">
+                <strong>CONFIDENTIAL</strong><br>
+                {{date}}<br>
+                Analysis Report
+            </div>
+        </div>
+
+        <!-- Title Section -->
+        <div class="title-section">
+            <h1>{{company_name}}</h1>
+            <div class="subtitle">Strategic Automation & Digital Transformation Analysis</div>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="label">Potential Funding</div>
+                <div class="value">{{funding_total}}</div>
+                <div class="sublabel">Est. Grants Available</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Revenue Opportunity</div>
+                <div class="value">{{revenue_potential}}</div>
+                <div class="sublabel">From Automation</div>
+            </div>
+            <div class="metric-card alert">
+                <div class="label">Automation Status</div>
+                <div class="value">{{automation_readiness}}</div>
+                <div class="sublabel">Action Required</div>
+            </div>
+        </div>
+
+        <!-- Pain Points -->
+        <div class="section">
+            <div class="section-title">⚠ Critical Pain Points</div>
+            <div class="pain-points">
+                {{pain_points_html}}
+            </div>
+        </div>
+
+        <!-- Top Opportunities -->
+        <div class="section">
+            <div class="section-title">💡 Top Automation Opportunities</div>
+            <div class="opportunities">
+                {{opportunities_html}}
+            </div>
+        </div>
+
+        <!-- Funding Opportunities -->
+        <div class="section">
+            <div class="section-title">💰 Potential Funding Sources</div>
+            <div class="funding-grid">
+                {{funding_html}}
+            </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="next-steps">
+            <h3>🎯 Recommended Next Steps</h3>
+            <ul>
+                <li>Schedule discovery call to review detailed automation opportunities</li>
+                <li>Conduct ROI analysis for top 3 recommended solutions</li>
+                <li>Begin funding application process for identified programs</li>
+                <li>Develop 90-day implementation roadmap</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-logo">
+                <img src="innovlead-logo.png" alt="InnovLead">
+            </div>
+            <strong>PREPARED BY INNOVLEAD VAULT</strong><br>
+            Strategic Consultancy & Digital Transformation Advisory<br>
+            This analysis is confidential and prepared specifically for {{company_name}}<br>
+            All estimates subject to detailed assessment • {{timestamp}}
+        </div>
+    </div>
+</body>
+
+</html>
