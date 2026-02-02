@@ -70,7 +70,7 @@ document.querySelector('#app').innerHTML = `
 
     <section id="collections" class="section-padding">
       <div class="container">
-        <h2 class="serif" style="text-align: center; font-size: 3rem; margin-bottom: 6rem;">THE SILVER COLLECTION</h2>
+        <h2 class="serif section-title">SILVER VAULT</h2>
         <div id="product-grid" class="product-grid"></div>
       </div>
     </section>
