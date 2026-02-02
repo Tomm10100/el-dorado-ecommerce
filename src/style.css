@@ -1099,11 +1099,11 @@ nav {
   }
 
   /* === HERO SECTION === */
-  .hero-section {
+  #hero {
     padding-top: 140px;
     /* Increased to 140px to safely clear ANY fixed nav bar */
     padding-bottom: 2rem;
-    min-height: 100vh;
+    min-height: 100vh; height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
