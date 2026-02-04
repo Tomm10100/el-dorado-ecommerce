@@ -1220,20 +1220,18 @@ nav {
 
 /* === DESKTOP SPECIFIC HERO OVERRIDES === */
 @media (min-width: 769px) {
-  #hero::before {
-    /* Switch to the Snake Chain V2 for Desktop */
-    background-image: url('/hero-chain-snake.png?v=11');
+  .hero-primary-visual {
+    display: block !important;
     width: 100%;
-    /* Ensure it covers the full width on PC */
-    background-size: cover;
-    background-position: center center;
-    /* Center it perfectly */
+    max-width: 1200px;
+    margin-bottom: -150px;
     transform: scale(1.1);
-    /* Slight zoom for impact */
+    /* Ensure it sits nicely */
+    position: relative;
+    z-index: 1;
   }
 
-  .hero-primary-visual {
-    /* Legacy safety: hide if still present */
+  #hero::before {
     display: none;
   }
 }
