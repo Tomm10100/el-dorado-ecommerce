@@ -154,7 +154,9 @@ function initHero() {
   const isMobile = window.innerWidth <= 768;
   const imgPath = isMobile ? '/hero-chain-horizontal.png' : '/hero-chain-snake.png';
 
-  img.src = imgPath + '?v=7';
+  const img = document.createElement('img'); // FIX: Define img before use
+
+  img.src = imgPath + '?v=8';
   img.className = 'hero-primary-visual';
 
   // Ensure "Cutout" effect by blending black background
