@@ -148,9 +148,19 @@ const PRODUCTS = [
 
 function initHero() {
   const container = document.querySelector('#hero-ring-container');
-  const img = document.createElement('img');
-  img.src = '/hero-chain-horizontal.png' + '?v=6'; // Horizontal cutout "Going Across"
+  // Select image based on device
+  // Desktop: User requested "Snake" curve following white line (Snake Chain)
+  // Mobile: "Going Across" horizontal cut (Horizontal Chain)
+  const isMobile = window.innerWidth <= 768;
+  const imgPath = isMobile ? '/hero-chain-horizontal.png' : '/hero-chain-snake.png';
+
+  img.src = imgPath + '?v=7';
   img.className = 'hero-primary-visual';
+
+  // Ensure "Cutout" effect by blending black background
+  // (Assuming site bg is dark/black)
+  img.style.mixBlendMode = 'screen';
+
   container.appendChild(img);
 
   window.addEventListener('mousemove', (e) => {
