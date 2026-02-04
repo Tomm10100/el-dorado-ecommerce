@@ -1164,14 +1164,20 @@ nav {
   /* ... h1 ... p ... */
 
   .hero-primary-visual {
-    width: 85%;
-    max-width: 350px;
+    width: 110%;
+    /* Make it huge and bleed off edges slightly */
+    max-width: 500px;
     margin: 0 auto;
     display: block;
     transform: none !important;
     /* ORDER 1: Image ON TOP */
     order: 1;
-    margin-bottom: 2rem;
+    /* Pull text up to touch the image */
+    margin-bottom: -40px;
+    z-index: 5;
+    /* Ensure it sits on top if needed, or below text depending on effect. User said 'touching'. */
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    /* Fade out bottom slightly so text is readable if overlap is heavy */
   }
 
   .frequency-controls {

@@ -149,7 +149,7 @@ const PRODUCTS = [
 function initHero() {
   const container = document.querySelector('#hero-ring-container');
   const img = document.createElement('img');
-  img.src = '/hero-chain.png'; // Reverted to original hero image
+  img.src = '/hero-chain-premium.png' + '?v=' + new Date().getTime(); // Premium cutout with cache bust
   img.className = 'hero-primary-visual';
   container.appendChild(img);
 
