@@ -120,7 +120,7 @@ const PRODUCTS = [
     price: 300,
     desc: "Handmade by humans, for humans. Exquisite 7-8 inch Gucci link bracelet crafted in 925 sterling silver. Each link is meticulously shaped by skilled artisans, creating a timeless piece that celebrates authentic craftsmanship and human artistry.",
     img: "/product-bracelet-2.jpg",
-    mobileImg: "/product-bracelet-chan-mobile.png",
+    mobileImg: "/product-bracelet-chan-white-mobile.png",
     category: "bracelet",
     resonance: "963Hz"
   },
@@ -218,7 +218,7 @@ function renderProducts() {
   grid.innerHTML = PRODUCTS.map((p, index) => {
     // Select image based on screen size (Mobile < 768px)
     const isMobile = window.innerWidth <= 768;
-    const cacheBuster = '?v=3'; // Force browser to re-download
+    const cacheBuster = '?v=4'; // Force browser to re-download
     const imgSrc = (isMobile && p.mobileImg) ? p.mobileImg + cacheBuster : p.img + cacheBuster;
 
     // Determine card size/style based on index for a dynamic layout
