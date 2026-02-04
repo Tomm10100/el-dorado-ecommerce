@@ -214,7 +214,28 @@ function initVisualizer() {
 
 function renderProducts() {
   const grid = document.querySelector('#product-grid');
-          </div >
+
+  grid.innerHTML = PRODUCTS.map((p, index) => {
+    // Select image based on screen size (Mobile < 768px)
+    const isMobile = window.innerWidth <= 768;
+    const cacheBuster = '?v=2'; // Force browser to re-download
+    const imgSrc = (isMobile && p.mobileImg) ? p.mobileImg + cacheBuster : p.img + cacheBuster;
+
+    // Determine card size/style based on index for a dynamic layout
+    const isLarge = index === 0; // Only the first item is large feature
+    const variantClass = isLarge ? 'product-card-large' : 'product-card-standard';
+
+    return `
+      <div class="product-card glass ${variantClass}" data-aos="fade-up" style="--delay: ${index * 0.1}s">
+        <div class="product-image-container">
+          <img src="${imgSrc}" alt="${p.name}" class="product-image" loading="lazy">
+           <div class="product-resonance-overlay sans">${p.resonance} RESONANCE</div>
+        </div>
+        <div class="product-info">
+          <div class="product-header">
+            <h3 class="product-title serif">${p.name}</h3>
+            <span class="product-price sans">$${p.price}</span>
+          </div>
           <p class="product-desc sans">${p.desc}</p>
           <div class="product-footer">
             <button class="add-to-cart-btn-premium sans" data-product-id="${p.id}">
@@ -222,8 +243,8 @@ function renderProducts() {
               <span class="btn-text">ADD TO COLLECTION</span>
             </button>
           </div>
-        </div >
-      </div >
+        </div>
+      </div>
     `;
   }).join('');
 
