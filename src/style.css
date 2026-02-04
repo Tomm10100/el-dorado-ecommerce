@@ -1100,18 +1100,19 @@ nav {
 
   /* === HERO SECTION === */
   #hero {
-    padding-top: 140px;
-    /* Increased to 140px to safely clear ANY fixed nav bar */
-    padding-bottom: 2rem;
-    min-height: 100vh; height: auto;
+    padding-top: 120px;
+    padding-bottom: 4rem;
+    min-height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Strict horizontal centering */
     justify-content: flex-start;
     position: relative;
     width: 100%;
     margin: 0;
+    gap: 3rem;
+    /* Add consistent gap between all hero elements */
   }
 
   .hero-copy {
@@ -1119,89 +1120,74 @@ nav {
     text-align: center;
     position: relative;
     z-index: 10;
-    order: 4;
-    /* Below controls */
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* ORDER 3: Text goes below image and controls */
+    order: 3;
   }
 
   .hero-copy h1 {
-    font-size: 1.5rem;
-    /* Drastic reduction to be safe */
+    font-size: 2.2rem;
+    /* Clean, readable size */
     line-height: 1.2;
     width: 90%;
-    /* Constrain width */
-    max-width: 350px;
+    max-width: 400px;
     white-space: normal;
-    /* Allow wrapping if needed */
     letter-spacing: 0.1em;
-    /* Tighter tracking */
-    margin: 0 auto 0.5rem auto;
-    /* Explicit centering */
+    margin: 0 auto 1rem auto;
   }
 
   .hero-copy p {
-    font-size: 0.65rem;
-    /* Smaller for mobile */
+    font-size: 0.8rem;
     line-height: 1.6;
-    margin-top: 3rem;
-    /* Space from visualizer above */
+    margin-top: 0;
+    opacity: 0.8;
   }
 
   .hero-primary-visual {
-    width: 80%;
-    /* Preferred width */
-    max-width: 400px;
-    /* Cap width */
-    margin: 0 auto 2rem auto;
-    /* Top: 0 (handled by padding), Bottom: 2rem, Sides: Auto */
+    width: 85%;
+    max-width: 350px;
+    margin: 0 auto;
     display: block;
     transform: none !important;
+    /* ORDER 1: Image ON TOP */
     order: 1;
-    align-self: center;
-    /* Flex item alignment */
+    margin-bottom: 2rem;
   }
 
   .frequency-controls {
     position: relative;
-    /* Override any absolute positioning */
     inset: auto;
-    top: auto;
-    left: auto;
-    right: auto;
-    bottom: auto;
     transform: none;
-    margin: 2rem auto;
-    /* Center the container itself */
+    margin: 0 auto;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* Ensure contents are centered */
     width: 100%;
     z-index: 20;
-    z-index: 20;
-    order: 3;
-    /* Affirmations are 2, Controls are 3 */
+    /* ORDER 2: Controls in middle (optional) or move to 3 if user wants text right after image */
+    order: 2;
+    margin-bottom: 2rem;
   }
 
   .freq-value {
-    font-size: 5rem;
+    font-size: 4rem;
+    /* Slightly smaller to fit clean layout */
   }
 
-  /* === PRODUCT GRID (The "Trash" Fix) === */
+  /* === PRODUCT GRID (Clean & Spacious) === */
   .product-grid {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Center items horizontally */
-    gap: 4rem;
+    gap: 6rem;
+    /* Huge gap for clean separation */
     margin-top: 4rem;
     padding: 0 1.5rem;
-    /* Match container padding */
     width: 100%;
     box-sizing: border-box;
   }
@@ -1212,9 +1198,10 @@ nav {
     grid-column: auto;
     width: 100%;
     margin: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    /* Divider style */
-    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    /* Slightly brighter divider */
+    padding-bottom: 4rem;
+    /* More breathing room before divider */
   }
 
   .product-card-large {
@@ -1253,6 +1240,7 @@ nav {
     width: 100%;
   }
 }
+
 /* New Section Title Styles */
 .section-title {
   text-align: center;
