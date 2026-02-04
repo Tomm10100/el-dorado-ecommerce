@@ -1111,149 +1111,149 @@ nav {
     content: '🛒';
     font-size: 1.2rem;
   }
-}
-
-.frequency-controls {
-  position: relative;
-  inset: auto;
-  transform: none;
-  margin: 0 auto;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  z-index: 20;
-  /* ORDER 4: Controls at BOTTOM (below visualizer) */
-  order: 4;
-  margin-bottom: 2rem;
-  margin-top: 1rem;
-  /* Adjust spacing */
-}
-
-.freq-value {
-  font-size: 4rem;
-  /* Slightly smaller to fit clean layout */
-}
-
-/* === PRODUCT GRID (Clean & Spacious) === */
-.product-grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6rem;
-  /* Huge gap for clean separation */
-  margin-top: 4rem;
-  padding: 0 1.5rem;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.product-card,
-.product-card-standard,
-.product-card-large {
-  grid-column: auto;
-  width: 100%;
-  margin: 0;
-  /* Glassmorphism Card Style */
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 2rem;
-  box-sizing: border-box;
-  /* Spacing between cards */
-  margin-bottom: 2rem;
-}
-
-.product-card-large {
-  flex-direction: column;
-}
-
-.product-card-large .product-info {
-  width: 100%;
-  padding: 1.5rem 0 0 0;
-  /* Adjust padding since container has padding */
-  border: none;
-}
-
-.product-image-container {
-  height: 450px;
-  width: 100%;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  /* Subtle glow behind product */
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
-}
-
-.product-image {
-  /* Ensure image creates no cropping */
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-
-  /* Logic: Images are now pre-generated with padding, so no scale needed */
-  transform: none;
-  transition: transform 0.3s ease;
-}
-
-/* Keep Pendant (First Item) BIG and perfect */
-.product-card:nth-child(1) .product-image,
-.product-card-standard:nth-child(1) .product-image {
-  transform: scale(1.0);
-}
 
 
-.product-info {
-  padding: 1.5rem 0 0 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* Center everything */
-  text-align: center;
-}
+  .frequency-controls {
+    position: relative;
+    inset: auto;
+    transform: none;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 20;
+    /* ORDER 4: Controls at BOTTOM (below visualizer) */
+    order: 4;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    /* Adjust spacing */
+  }
 
-.product-title {
-  font-size: 1.8rem;
-  /* Slightly larger title */
-  font-family: var(--font-serif);
-  margin-bottom: 0.5rem;
-  color: var(--pure-silver);
-}
+  .freq-value {
+    font-size: 4rem;
+    /* Slightly smaller to fit clean layout */
+  }
 
-.product-desc {
-  font-size: 0.9rem;
-  opacity: 0.7;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  max-width: 100%;
-}
+  /* === PRODUCT GRID (Clean & Spacious) === */
+  .product-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6rem;
+    /* Huge gap for clean separation */
+    margin-top: 4rem;
+    padding: 0 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
 
-/* Make 'Add to Cart' buttons standout on mobile */
-.add-to-cart-btn,
-.add-to-cart-btn-premium {
-  width: 100%;
-  justify-content: center;
-  padding: 1rem;
-  border: 1px solid var(--aura-gold);
-  background: rgba(201, 176, 55, 0.1);
-}
+  .product-card,
+  .product-card-standard,
+  .product-card-large {
+    grid-column: auto;
+    width: 100%;
+    margin: 0;
+    /* Glassmorphism Card Style */
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    box-sizing: border-box;
+    /* Spacing between cards */
+    margin-bottom: 2rem;
+  }
 
-.add-to-cart-btn:active,
-.add-to-cart-btn-premium:active {
-  background: var(--aura-gold);
-  color: #000;
-}
+  .product-card-large {
+    flex-direction: column;
+  }
 
-/* === CART === */
-.cart-sidebar {
-  width: 100%;
-}
+  .product-card-large .product-info {
+    width: 100%;
+    padding: 1.5rem 0 0 0;
+    /* Adjust padding since container has padding */
+    border: none;
+  }
+
+  .product-image-container {
+    height: 450px;
+    width: 100%;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Subtle glow behind product */
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  }
+
+  .product-image {
+    /* Ensure image creates no cropping */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    /* Logic: Images are now pre-generated with padding, so no scale needed */
+    transform: none;
+    transition: transform 0.3s ease;
+  }
+
+  /* Keep Pendant (First Item) BIG and perfect */
+  .product-card:nth-child(1) .product-image,
+  .product-card-standard:nth-child(1) .product-image {
+    transform: scale(1.0);
+  }
+
+
+  .product-info {
+    padding: 1.5rem 0 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center everything */
+    text-align: center;
+  }
+
+  .product-title {
+    font-size: 1.8rem;
+    /* Slightly larger title */
+    font-family: var(--font-serif);
+    margin-bottom: 0.5rem;
+    color: var(--pure-silver);
+  }
+
+  .product-desc {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+  }
+
+  /* Make 'Add to Cart' buttons standout on mobile */
+  .add-to-cart-btn,
+  .add-to-cart-btn-premium {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem;
+    border: 1px solid var(--aura-gold);
+    background: rgba(201, 176, 55, 0.1);
+  }
+
+  .add-to-cart-btn:active,
+  .add-to-cart-btn-premium:active {
+    background: var(--aura-gold);
+    color: #000;
+  }
+
+  /* === CART === */
+  .cart-sidebar {
+    width: 100%;
+  }
 }
 
 /* New Section Title Styles */
