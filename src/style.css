@@ -1357,4 +1357,6 @@ nav {
     font-size: 1.8rem !important;
     margin-bottom: 3rem !important;
   }
-}
+}/ *   = = =   D E S K T O P   S P E C I F I C   H E R O   O V E R R I D E S   = = =   * /  
+ @ m e d i a   ( m i n - w i d t h :   7 6 9 p x )   {   . h e r o - p r i m a r y - v i s u a l   {   w i d t h :   1 0 0 % ;   m a x - w i d t h :   1 2 0 0 p x ;   m a r g i n - b o t t o m :   - 1 5 0 p x ;   t r a n s f o r m :   s c a l e ( 1 . 1 ) ;   }   }  
+ 
