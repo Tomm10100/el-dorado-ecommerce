@@ -1235,9 +1235,25 @@ nav {
 
   .product-image-container {
     height: 450px;
-    /* Taller, more premium image ratio */
     width: 100%;
     border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .product-image {
+    /* Scale down ALL images to look 'further back' */
+    transform: scale(0.7);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+
+  /* Keep Pendant (First Item) BIG and perfect */
+  .product-card:nth-child(1) .product-image,
+  .product-card-standard:nth-child(1) .product-image {
+    transform: scale(1.0);
   }
 
   .product-info {
