@@ -119,8 +119,8 @@ const PRODUCTS = [
     name: "Chan",
     price: 300,
     desc: "Handmade by humans, for humans. Exquisite 7-8 inch Gucci link bracelet crafted in 925 sterling silver. Each link is meticulously shaped by skilled artisans, creating a timeless piece that celebrates authentic craftsmanship and human artistry.",
-    img: "/product-bracelet-2.jpg",
-    mobileImg: "/product-bracelet-chan-white-mobile.png",
+    img: "/product-bracelet-chan-white-mobile.png", // White background for Desktop
+    mobileImg: "/product-bracelet-chan-mobile.png", // Dark background for Mobile
     category: "bracelet",
     resonance: "963Hz"
   },
