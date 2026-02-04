@@ -342,17 +342,21 @@ nav {
 }
 
 #resonance-visualizer {
-  position: absolute;
-  bottom: 4rem;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  bottom: auto;
+  left: auto;
+  transform: none;
   display: flex;
   gap: 6px;
   align-items: center;
-  height: 120px;
-  /* Taller visualizer */
+  justify-content: center;
+  height: 80px;
+  /* Slightly shorter for better stacking */
   z-index: 1;
-  /* Minimal z-index */
+  order: 3;
+  /* Visualizer comes after Text (2) but before Controls (4) */
+  margin: 2rem 0;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
