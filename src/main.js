@@ -90,6 +90,7 @@ const PRODUCTS = [
     price: 200,
     desc: "Stunning channel-set cross pendant featuring brilliant green and white cubic zirconia stones. Each stone is meticulously placed in premium sterling silver, creating a striking contrast that catches light from every angle. A powerful symbol of faith meets luxury craftsmanship.",
     img: "/product-pendant-main.jpg",
+    mobileImg: "/product-pendant-mobile.png",
     category: "pendant",
     resonance: "963Hz"
   },
@@ -99,6 +100,7 @@ const PRODUCTS = [
     price: 1200,
     desc: "Luxury 22-inch Cuban link chain featuring invisible-set zirconia stones that create a seamless fire of brilliance. Crafted in premium sterling silver with a special box lock clasp for ultimate security. Each link is precision-engineered to showcase maximum sparkle while maintaining exceptional durability.",
     img: "/product-chain-main.jpg",
+    mobileImg: "/product-chain-mobile.png",
     category: "chain",
     resonance: "963Hz"
   },
@@ -108,6 +110,7 @@ const PRODUCTS = [
     price: 400,
     desc: "8-inch Cuban link bracelet featuring invisible-set cubic zirconia stones in premium sterling silver. Each stone is precision-placed to create a seamless display of brilliance. Secured with a special box lock clasp for ultimate security and elegance.",
     img: "/product-bracelet-cuban-main.jpg",
+    mobileImg: "/product-bracelet-dumfe-mobile.png",
     category: "bracelet",
     resonance: "963Hz"
   },
@@ -117,6 +120,7 @@ const PRODUCTS = [
     price: 300,
     desc: "Handmade by humans, for humans. Exquisite 7-8 inch Gucci link bracelet crafted in 925 sterling silver. Each link is meticulously shaped by skilled artisans, creating a timeless piece that celebrates authentic craftsmanship and human artistry.",
     img: "/product-bracelet-2.jpg",
+    mobileImg: "/product-bracelet-chan-mobile.png",
     category: "bracelet",
     resonance: "963Hz"
   },
@@ -126,6 +130,7 @@ const PRODUCTS = [
     price: 200,
     desc: "Handmade for humans, by humans. Bold box chain bracelet crafted in 925 sterling silver. Each link is individually shaped by master artisans, creating a piece that embodies strength and authenticity. A statement of pure craftsmanship.",
     img: "/product-bracelet-byzantine-main.jpg",
+    mobileImg: "/product-bracelet-oni-mobile.png",
     category: "bracelet",
     resonance: "963Hz"
   },
@@ -135,6 +140,7 @@ const PRODUCTS = [
     price: 200,
     desc: "Handmade by humans, for humans. Elegant 7-8 inch chain link bracelet in 925 sterling silver. Each link is carefully crafted by skilled artisans, creating a fluid, timeless design that flows naturally with your movement.",
     img: "/product-bracelet-rope-main.jpg",
+    mobileImg: "/product-bracelet-fan-mobile.png",
     category: "bracelet",
     resonance: "963Hz"
   }
@@ -208,22 +214,7 @@ function initVisualizer() {
 
 function renderProducts() {
   const grid = document.querySelector('#product-grid');
-  grid.innerHTML = PRODUCTS.map((p, index) => {
-    // Determine card size/style based on index for a dynamic layout
-    const isLarge = index % 3 === 0;
-    const variantClass = isLarge ? 'product-card-large' : 'product-card-standard';
-
-    return `
-      <div class="product-card glass ${variantClass}" data-aos="fade-up" style="--delay: ${index * 0.1}s">
-        <div class="product-image-container">
-          <img src="${p.img}" alt="${p.name}" class="parallax-img">
-          <div class="product-resonance-overlay sans">${p.resonance} RESONANCE</div>
-        </div>
-        <div class="product-info">
-          <div class="product-header">
-            <h3 class="product-title serif">${p.name}</h3>
-            <span class="product-price sans">$${p.price}</span>
-          </div>
+          </div >
           <p class="product-desc sans">${p.desc}</p>
           <div class="product-footer">
             <button class="add-to-cart-btn-premium sans" data-product-id="${p.id}">
@@ -231,8 +222,8 @@ function renderProducts() {
               <span class="btn-text">ADD TO COLLECTION</span>
             </button>
           </div>
-        </div>
-      </div>
+        </div >
+      </div >
     `;
   }).join('');
 
