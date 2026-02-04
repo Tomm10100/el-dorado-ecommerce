@@ -147,11 +147,38 @@ const PRODUCTS = [
 ];
 
 function initHero() {
-  // Hero image is now handled via CSS background-image on #hero::before
-  // This ensures better coverage ("fit from right to left") and blend modes.
   const container = document.querySelector('#hero-ring-container');
-  if (container) container.style.display = 'none'; // Hide the old container
+  // Select image based on device
+  // Desktop: User requested "Snake" curve following white line (Snake Chain)
+  // Mobile: "Going Across" horizontal cut (Horizontal Chain)
+  const isMobile = window.innerWidth <= 768;
+  const imgPath = isMobile ? '/hero-chain-horizontal.png' : '/hero-chain-snake.png';
 
+  const img = document.createElement('img'); // FIX: Define img before use
+
+  img.src = imgPath + '?v=9';
+  img.className = 'hero-primary-visual';
+
+  // Ensure "Cutout" effect by blending black background
+  // (Assuming site bg is dark/black)
+  img.style.mixBlendMode = 'screen';
+
+  container.appendChild(img);
+
+  window.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 30;
+    const y = (e.clientY / window.innerHeight - 0.5) * 30;
+    // On mobile we forced the rotation in CSS, but here we can keep the dynamic desktop logic
+    // We'll let CSS override the transform for mobile
+    if (window.innerWidth > 768) {
+      img.style.transform = `translate(${x}px, ${y}px) rotate(90deg) rotate(${x / 10}deg)`;
+    }
+  });
+
+  // Set initial position for desktop
+  if (window.innerWidth > 768) {
+    img.style.transform = 'rotate(90deg)';
+  }
 }
 
 function initVisualizer() {

@@ -187,7 +187,41 @@ nav {
 }
 
 /* Hero */
+/* Hero - Refactored for Clean Vertical Stack on Desktop */
+#hero {
+  min-height: 100vh;
+  padding-top: 100px;
+  /* Space for nav */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 2rem;
+}
 
+.hero-visual {
+  position: relative;
+  z-index: 1;
+  order: 1;
+  /* Image Top */
+  margin-bottom: 2rem;
+}
+
+.hero-primary-visual {
+  width: 100%;
+  max-width: 600px;
+  filter: drop-shadow(0 0 30px rgba(229, 228, 226, 0.15));
+  transition: transform 0.1s ease-out;
+}
+
+.hero-copy {
+  margin-top: 0;
+  z-index: 2;
+  order: 2;
+  /* Text Middle */
+}
 
 .hero-copy h1 {
   font-size: clamp(3rem, 10vw, 6rem);
@@ -1112,6 +1146,58 @@ nav {
     font-size: 1.2rem;
   }
 
+  /* === HERO SECTION === */
+  #hero {
+    padding-top: 120px;
+    padding-bottom: 4rem;
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    gap: 3rem;
+    overflow: hidden;
+    /* FIX: containment for "bleeding" image */
+  }
+
+  .hero-copy {
+    margin-top: 1rem;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* ORDER 2: Text below Image */
+    order: 2;
+  }
+
+  /* ... h1 ... p ... */
+
+  .hero-primary-visual {
+    width: 130%;
+    /* Bleed off screen significantly for "Going Across" effect */
+    max-width: none;
+    /* remove constraint */
+    margin: 0 -15%;
+    /* Center it by negating the extra width */
+    display: block;
+    transform: rotate(-15deg) !important;
+    /* Slight tilt for flow */
+    /* ORDER 1: Image ON TOP */
+    order: 1;
+    /* Pull text up to interact */
+    margin-bottom: -50px;
+    z-index: 5;
+    /* Ensure it sits on top if needed, or below text depending on effect. User said 'touching'. */
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    /* Fade out bottom slightly so text is readable if overlap is heavy */
+  }
 
   .frequency-controls {
     position: relative;
@@ -1271,24 +1357,6 @@ nav {
     font-size: 1.8rem !important;
     margin-bottom: 3rem !important;
   }
-}
-
-/* === DESKTOP SPECIFIC HERO OVERRIDES === */
-@media (min-width: 769px) {
-  #hero::before {
-    /* Switch to the Snake Chain V2 for Desktop */
-    background-image: url('/hero-chain-snake.png?v=11');
-    width: 100%;
-    /* Ensure it covers the full width on PC */
-    background-size: cover;
-    background-position: center center;
-    /* Center it perfectly */
-    transform: scale(1.1);
-    /* Slight zoom for impact */
-  }
-
-  .hero-primary-visual {
-    /* Legacy safety: hide if still present */
-    display: none;
-  }
-}
+}/ *   = = =   D E S K T O P   S P E C I F I C   H E R O   O V E R R I D E S   = = =   * /  
+ @ m e d i a   ( m i n - w i d t h :   7 6 9 p x )   {   . h e r o - p r i m a r y - v i s u a l   {   w i d t h :   1 0 0 % ;   m a x - w i d t h :   1 2 0 0 p x ;   m a r g i n - b o t t o m :   - 1 5 0 p x ;   t r a n s f o r m :   s c a l e ( 1 . 1 ) ;   }   }  
+ 
