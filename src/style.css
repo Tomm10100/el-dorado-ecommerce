@@ -587,10 +587,21 @@ nav {
   }
 
   .hero-primary-visual {
-    max-width: 85%;
-    margin-top: 2rem;
-    /* Ensure chain looks good vertically */
-    transform: rotate(0deg);
+    width: 130%;
+    /* Bleed off screen significantly for "Going Across" effect */
+    max-width: none;
+    /* remove constraint */
+    margin: 0 -15%;
+    /* Center it by negating the extra width */
+    display: block;
+    transform: rotate(-15deg) !important;
+    /* Slight tilt for flow */
+    /* ORDER 1: Image ON TOP */
+    order: 1;
+    /* Pull text up to interact */
+    margin-bottom: -50px;
+    z-index: 5;
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
   }
 
   /* Product Grid Mobile - 1 column mostly, maybe 2 for small items if we wanted, but 1 is safer for "luxury" big photos */
