@@ -1268,11 +1268,7 @@ nav {
     transform: scale(1.0);
   }
 
-  /* Expand Fan Bracelet (Last Item) - It was too small */
-  .product-card:nth-child(6) .product-image,
-  .product-card-standard:nth-child(6) .product-image {
-    transform: scale(1.25);
-  }
+  /* Fan Bracelet override removed - using v2 optimized image */
 
   .product-info {
     padding: 1.5rem 0 0 0;

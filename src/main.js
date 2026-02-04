@@ -218,7 +218,7 @@ function renderProducts() {
   grid.innerHTML = PRODUCTS.map((p, index) => {
     // Select image based on screen size (Mobile < 768px)
     const isMobile = window.innerWidth <= 768;
-    const cacheBuster = '?v=2'; // Force browser to re-download
+    const cacheBuster = '?v=3'; // Force browser to re-download
     const imgSrc = (isMobile && p.mobileImg) ? p.mobileImg + cacheBuster : p.img + cacheBuster;
 
     // Determine card size/style based on index for a dynamic layout
