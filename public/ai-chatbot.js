@@ -24,24 +24,7 @@ class ElDoradoChatbot {
                 font-family: 'Inter', sans-serif;
             }
 
-            .chat-toggle-btn {
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-                background: linear-gradient(135deg, #FFD700, #FFA500);
-                border: none;
-                cursor: pointer;
-                box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 28px;
-                transition: transform 0.3s ease;
-            }
-
-            .chat-toggle-btn:hover {
-                transform: scale(1.1);
-            }
+            /* Chat toggle button removed */
 
             .chat-window {
                 position: absolute;
@@ -230,15 +213,13 @@ class ElDoradoChatbot {
         const widget = document.createElement('div');
         widget.className = 'eldorado-chatbot';
         widget.innerHTML = `
-            <button class="chat-toggle-btn" id="chat-toggle">
-                💎
-            </button>
             <div class="chat-window" id="chat-window">
                 <div class="chat-header">
                     <div>
                         <h3>El Dorado Assistant</h3>
                         <div class="chat-status">● Online</div>
                     </div>
+                    <button id="chat-close-btn" style="background:none;border:none;color:#000;font-size:24px;cursor:pointer;">&times;</button>
                 </div>
                 <div class="quick-actions" id="quick-actions">
                     <button class="quick-action-btn" data-action="products">View Products</button>
@@ -269,8 +250,18 @@ class ElDoradoChatbot {
     }
 
     attachEventListeners() {
-        document.getElementById('chat-toggle').addEventListener('click', () => {
-            this.toggleChat();
+        // Close button
+        const closeBtn = document.getElementById('chat-close-btn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => this.toggleChat());
+        }
+
+        // Global trigger listeners (for footer/nav links)
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('trigger-chat') || e.target.closest('.trigger-chat')) {
+                e.preventDefault();
+                this.toggleChat();
+            }
         });
 
         document.getElementById('chat-send').addEventListener('click', () => {

@@ -39,6 +39,7 @@ document.querySelector('#app').innerHTML = `
       <button id="cart-btn-mobile" class="cart-btn-mobile">
         CART (<span id="cart-count-mobile">0</span>)
       </button>
+      <a href="#" class="trigger-chat">LIVE SUPPORT</a>
       <a href="mailto:tommy@innovlead.ca">CONTACT</a>
     </div>
   </nav>
