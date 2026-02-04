@@ -1190,367 +1190,50 @@ nav {
     transform: rotate(-15deg) !important;
     /* Slight tilt for flow */
     /* ORDER 1: Image ON TOP */
-    order: 1;
+    /* Ensure it sits on top if needed, or below text depending on effect. User said 'touching'. */
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    /* Fade out bottom slightly so text is readable if overlap is heavy */
+  }
 
-    .mobile-menu {
-      position: fixed;
-      top: 80px;
-      left: -100%;
-      width: 300px;
-      max-width: 80%;
-      height: calc(100vh - 80px);
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      padding: 2rem 0;
-      background: var(--obsidian);
-      transition: left 0.4s var(--easing-gentle);
-      z-index: 150;
-    }
+  /* === CART === */
+  .cart-sidebar {
+    width: 100%;
+  }
+}
 
-    .mobile-menu.active {
-      left: 0;
-    }
+/* New Section Title Styles */
+.section-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 6rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: var(--off-white);
+}
 
-    .mobile-menu a,
-    .mobile-menu button {
-      padding: 1.5rem 2rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      font-size: 0.9rem;
-      letter-spacing: 0.2em;
-      transition: var(--transition-medium);
-      background: transparent;
-      border-left: none;
-      border-right: none;
-      border-top: none;
-      color: inherit;
-      text-align: left;
-      cursor: pointer;
-      width: 100%;
-    }
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.8rem !important;
+    margin-bottom: 3rem !important;
+  }
+}
 
-    .mobile-menu a:hover,
-    .mobile-menu button:hover {
-      background: var(--glass-bg);
-      padding-left: 2.5rem;
-    }
+/* === DESKTOP SPECIFIC HERO OVERRIDES === */
+@media (min-width: 769px) {
+  #hero::before {
+    /* Switch to the Snake Chain V2 for Desktop */
+    background-image: url('/hero-chain-snake.png?v=11');
+    width: 100%;
+    /* Ensure it covers the full width on PC */
+    background-size: cover;
+    background-position: center center;
+    /* Center it perfectly */
+    transform: scale(1.1);
+    /* Slight zoom for impact */
+  }
 
-    .desktop-nav {
-      display: flex;
-    }
-
-    /* Experience Overlay */
-    .experience-overlay {
-      position: fixed;
-      inset: 0;
-      background: var(--obsidian);
-      color: var(--off-white);
-      z-index: 9999;
-      flex-direction: column;
-      transition: opacity 1s var(--easing-gentle);
-    }
-
-    .overlay-content {
-      text-align: center;
-    }
-
-    .overlay-content h2 {
-      font-size: 1.2rem;
-      letter-spacing: 1em;
-      margin-bottom: 3rem;
-      opacity: 0.6;
-    }
-
-    .enter-btn {
-      background: transparent;
-      border: 1px solid var(--glass-border);
-      color: var(--off-white);
-      padding: 1.5rem 4rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.5em;
-      cursor: pointer;
-      transition: all 0.6s var(--easing-gentle);
-    }
-
-    .enter-btn:hover {
-      background: var(--off-white);
-      color: var(--obsidian);
-      letter-spacing: 0.7em;
-    }
-
-    @media (max-width: 768px) {
-
-      /* === NAV & HEADER === */
-      .mobile-menu-btn {
-        display: block;
-        position: relative;
-        /* Changed from absolute */
-        top: auto;
-        left: auto;
-        background: transparent;
-        /* Cleaner look in nav */
-        backdrop-filter: none;
-        border: none;
-        padding: 0.5rem;
-        margin-right: 1rem;
-        /* Space from logo */
-      }
-
-      .nav-content {
-        padding: 1rem 1.5rem;
-        display: flex;
-        justify-content: space-between;
-        /* Hamburger | Logo | Cart */
-        align-items: center;
-        gap: 1rem;
-      }
-
-      .desktop-nav {
-        display: none !important;
-      }
-
-      .brand-logo {
-        font-size: 1.6rem;
-        position: relative;
-        left: 0;
-        transform: none;
-        margin: 0;
-      }
-
-      .cart-btn {
-        position: absolute;
-        top: 1.5rem;
-        right: 1.5rem;
-        padding: 8px;
-        /* Icon only feel */
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        justify-content: center;
-        margin: 0;
-        border: 1px solid var(--aura-gold);
-        background: rgba(0, 0, 0, 0.5);
-      }
-
-      .cart-btn span {
-        display: none;
-      }
-
-      /* Hide 'Cart' text, show icon */
-      .cart-btn::before {
-        content: '🛒';
-        font-size: 1.2rem;
-      }
-
-      /* === HERO SECTION === */
-      #hero {
-        padding-top: 120px;
-        padding-bottom: 4rem;
-        min-height: 100vh;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        position: relative;
-        width: 100%;
-        margin: 0;
-        gap: 3rem;
-        overflow: hidden;
-        /* FIX: containment for "bleeding" image */
-      }
-
-      .hero-copy {
-        margin-top: 1rem;
-        text-align: center;
-        position: relative;
-        z-index: 10;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* ORDER 2: Text below Image */
-        order: 2;
-      }
-
-      /* ... h1 ... p ... */
-
-      .hero-primary-visual {
-        width: 130%;
-        /* Bleed off screen significantly for "Going Across" effect */
-        max-width: none;
-        /* remove constraint */
-        margin: 0 -15%;
-        /* Center it by negating the extra width */
-        display: block;
-        transform: rotate(-15deg) !important;
-        /* Slight tilt for flow */
-        /* ORDER 1: Image ON TOP */
-        order: 1;
-        /* Pull text up to interact */
-        margin-bottom: -50px;
-        z-index: 5;
-        /* Ensure it sits on top if needed, or below text depending on effect. User said 'touching'. */
-        mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-        /* Fade out bottom slightly so text is readable if overlap is heavy */
-      }
-
-      .frequency-controls {
-        position: relative;
-        inset: auto;
-        transform: none;
-        margin: 0 auto;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        z-index: 20;
-        /* ORDER 4: Controls at BOTTOM (below visualizer) */
-        order: 4;
-        margin-bottom: 2rem;
-        margin-top: 1rem;
-        /* Adjust spacing */
-      }
-
-      .freq-value {
-        font-size: 4rem;
-        /* Slightly smaller to fit clean layout */
-      }
-
-      /* === PRODUCT GRID (Clean & Spacious) === */
-      .product-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6rem;
-        /* Huge gap for clean separation */
-        margin-top: 4rem;
-        padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      .product-card,
-      .product-card-standard,
-      .product-card-large {
-        grid-column: auto;
-        width: 100%;
-        margin: 0;
-        /* Glassmorphism Card Style */
-        background: rgba(255, 255, 255, 0.02);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 16px;
-        padding: 2rem;
-        box-sizing: border-box;
-        /* Spacing between cards */
-        margin-bottom: 2rem;
-      }
-
-      .product-card-large {
-        flex-direction: column;
-      }
-
-      .product-card-large .product-info {
-        width: 100%;
-        padding: 1.5rem 0 0 0;
-        /* Adjust padding since container has padding */
-        border: none;
-      }
-
-      .product-image-container {
-        height: 450px;
-        width: 100%;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        /* Subtle glow behind product */
-        background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
-      }
-
-      .product-image {
-        /* Ensure image creates no cropping */
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-
-        /* Logic: Images are now pre-generated with padding, so no scale needed */
-        transform: none;
-        transition: transform 0.3s ease;
-      }
-
-      /* Keep Pendant (First Item) BIG and perfect */
-      .product-card:nth-child(1) .product-image,
-      .product-card-standard:nth-child(1) .product-image {
-        transform: scale(1.0);
-      }
-
-
-      .product-info {
-        padding: 1.5rem 0 0 0;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* Center everything */
-        text-align: center;
-      }
-
-      .product-title {
-        font-size: 1.8rem;
-        /* Slightly larger title */
-        font-family: var(--font-serif);
-        margin-bottom: 0.5rem;
-        color: var(--pure-silver);
-      }
-
-      .product-desc {
-        font-size: 0.9rem;
-        opacity: 0.7;
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-        max-width: 100%;
-      }
-
-      /* Make 'Add to Cart' buttons standout on mobile */
-      .add-to-cart-btn,
-      .add-to-cart-btn-premium {
-        width: 100%;
-        justify-content: center;
-        padding: 1rem;
-        border: 1px solid var(--aura-gold);
-        background: rgba(201, 176, 55, 0.1);
-      }
-
-      .add-to-cart-btn:active,
-      .add-to-cart-btn-premium:active {
-        background: var(--aura-gold);
-        color: #000;
-      }
-
-      /* === CART === */
-      .cart-sidebar {
-        width: 100%;
-      }
-    }
-
-    /* New Section Title Styles */
-    .section-title {
-      text-align: center;
-      font-size: 3rem;
-      margin-bottom: 6rem;
-      font-weight: 300;
-      letter-spacing: 0.2em;
-      color: var(--off-white);
-    }
-
-    @media (max-width: 768px) {
-      .section-title {
-        font-size: 1.8rem !important;
-        margin-bottom: 3rem !important;
-      }
-    }
+  .hero-primary-visual {
+    /* Legacy safety: hide if still present */
+    display: none;
+  }
+}
