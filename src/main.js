@@ -152,10 +152,6 @@ function initHero() {
   const container = document.querySelector('#hero-ring-container');
   if (container) container.style.display = 'none'; // Hide the old container
 
-  // Parallax effect can still be applied to the background if desired in future
-  window.addEventListener('mousemove', (e) => {
-    // Optional: Add subtle background movement here later
-  });
 }
 
 function initVisualizer() {
