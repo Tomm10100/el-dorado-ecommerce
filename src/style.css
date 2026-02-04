@@ -577,9 +577,13 @@ nav {
   }
 
   /* Hero Adjustments */
+  /* Hero Adjustments */
   .hero-copy h1 {
-    font-size: 3.5rem;
+    font-size: 2.6rem;
+    /* 25% smaller than before (3.5rem) to fit Galaxy S22 */
     line-height: 1.1;
+    padding: 0 1rem;
+    /* Ensure padding prevents edge touching */
   }
 
   .hero-primary-visual {
