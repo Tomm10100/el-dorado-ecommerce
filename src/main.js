@@ -156,7 +156,7 @@ function initHero() {
 
   const img = document.createElement('img'); // FIX: Define img before use
 
-  img.src = imgPath + '?v=8';
+  img.src = imgPath + '?v=9';
   img.className = 'hero-primary-visual';
 
   // Ensure "Cutout" effect by blending black background
