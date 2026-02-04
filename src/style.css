@@ -1179,16 +1179,19 @@ nav {
   /* ... h1 ... p ... */
 
   .hero-primary-visual {
-    width: 110%;
-    /* Make it huge and bleed off edges slightly */
-    max-width: 500px;
-    margin: 0 auto;
+    width: 130%;
+    /* Bleed off screen significantly for "Going Across" effect */
+    max-width: none;
+    /* remove constraint */
+    margin: 0 -15%;
+    /* Center it by negating the extra width */
     display: block;
-    transform: none !important;
+    transform: rotate(-15deg) !important;
+    /* Slight tilt for flow */
     /* ORDER 1: Image ON TOP */
     order: 1;
-    /* Pull text up to touch the image */
-    margin-bottom: -40px;
+    /* Pull text up to interact */
+    margin-bottom: -50px;
     z-index: 5;
     /* Ensure it sits on top if needed, or below text depending on effect. User said 'touching'. */
     mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
