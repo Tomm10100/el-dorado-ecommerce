@@ -47,9 +47,11 @@ document.querySelector('#app').innerHTML = `
     <section id="hero" class="flex-center">
       <div class="frequency-controls">
         <div class="frequency-display">
+          <span class="freq-label">Current Resonance</span>
           <span class="freq-value">963Hz</span>
           <button id="resonance-toggle" class="resonance-toggle sans">
             <span class="pulse-icon"></span>
+            ACTIVE RESONANCE
           </button>
         </div>
       </div>
