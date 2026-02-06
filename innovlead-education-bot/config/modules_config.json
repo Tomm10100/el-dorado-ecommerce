@@ -1,0 +1,37 @@
+{
+    "modules": [
+        {
+            "id": 1,
+            "code": "ai_ethics",
+            "title": "AI Ethics & Responsible AI",
+            "description": "Learn the fundamentals of ethical AI, bias recognition, and responsible use of generative AI tools.",
+            "order": 1,
+            "estimated_duration_minutes": 45,
+            "total_lessons": 5,
+            "icon": "🤖",
+            "is_published": true
+        },
+        {
+            "id": 2,
+            "code": "privacy_canada",
+            "title": "Privacy in Canada (PIPEDA)",
+            "description": "Understand your privacy rights under PIPEDA, data protection, and compliance for individuals and NGOs.",
+            "order": 2,
+            "estimated_duration_minutes": 60,
+            "total_lessons": 6,
+            "icon": "🔒",
+            "is_published": true
+        },
+        {
+            "id": 3,
+            "code": "social_automation",
+            "title": "Social Automation with Low-Code Tools",
+            "description": "Master automation basics and low-code platforms like n8n to boost productivity without budget constraints.",
+            "order": 3,
+            "estimated_duration_minutes": 40,
+            "total_lessons": 4,
+            "icon": "⚡",
+            "is_published": true
+        }
+    ]
+}
