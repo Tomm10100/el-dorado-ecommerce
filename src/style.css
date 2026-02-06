@@ -641,21 +641,16 @@ nav {
   }
 }
 
-/* ===== PRODUCT IMAGE FIX: White backgrounds on dark theme ===== */
+/* ===== PRODUCT IMAGE: Clean gallery presentation ===== */
 .product-image-container {
-  background: var(--obsidian) !important;
+  background: linear-gradient(145deg, #1a1a1a 0%, #111111 50%, #0d0d0d 100%) !important;
+  padding: 1rem;
 }
 
 .product-image-container img {
-  mix-blend-mode: multiply;
-  filter: brightness(0.95) contrast(1.1);
-}
-
-/* For images that already have dark backgrounds, don't apply blend */
-.product-card:first-child .product-image-container img,
-.product-card:nth-child(2) .product-image-container img {
-  mix-blend-mode: normal;
-  filter: none;
+  border-radius: 4px;
+  object-fit: contain !important;
+  background: transparent;
 }
 
 /* ===== TRUST BANNER SECTION ===== */
