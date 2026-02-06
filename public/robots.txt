@@ -1,0 +1,13 @@
+# El Dorado - 963Hz Resonant Silver Jewelry
+# https://eldorado111.com
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://eldorado111.com/sitemap.xml
+
+# Crawl-delay for politeness
+Crawl-delay: 1

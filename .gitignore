@@ -1,85 +1,30 @@
-# InnovLead Content Engine - Git Ignore
-
-# Environment and secrets
-.env
-*.env
-.env.local
-.env.production
-
-# API Keys and credentials
-credentials.json
-token.json
-*.key
-*.pem
-
-# Temporary files and generated content
-.tmp/
-*.tmp
-*.temp
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-!core/lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Virtual environment
-venv/
-ENV/
-env/
-.venv
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-
 # Logs
+logs
 *.log
-logs/
-*.jsonl
-social_queue.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Images (too large for git, regenerate as needed)
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.webp
+node_modules
+dist
+dist-ssr
+*.local
 
-# Node modules (if using n8n locally)
-node_modules/
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# OS
-Thumbs.db
-Desktop.ini
-
-# Backup files
-*.bak
-*.backup
-*~
-
-# Keep structure but ignore content
-.tmp/*
-!.tmp/.gitkeep
 .vercel
+
+.git_disabled
+
+.env
