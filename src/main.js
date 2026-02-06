@@ -69,16 +69,128 @@ document.querySelector('#app').innerHTML = `
       <div id="resonance-visualizer"></div>
     </section>
 
+    <section id="shop"></section>
     <section id="collections" class="section-padding">
       <div class="container">
         <h2 class="serif section-title">SILVER VAULT</h2>
         <div id="product-grid" class="product-grid"></div>
       </div>
     </section>
+
+    <!-- Trust Banner -->
+    <section id="trust-banner" class="trust-banner-section">
+      <div class="container">
+        <div class="trust-banner-grid">
+          <div class="trust-item">
+            <span class="trust-icon">🔒</span>
+            <div class="trust-text">
+              <strong>SECURE CHECKOUT</strong>
+              <span>256-bit SSL Encrypted</span>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">✦</span>
+            <div class="trust-text">
+              <strong>925 STERLING SILVER</strong>
+              <span>Certified Authentic</span>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">↩</span>
+            <div class="trust-text">
+              <strong>30-DAY GUARANTEE</strong>
+              <span>Full Money Back</span>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">✈</span>
+            <div class="trust-text">
+              <strong>WORLDWIDE SHIPPING</strong>
+              <span>Tracked & Insured</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding about-section">
+      <div class="container about-container">
+        <div class="about-content">
+          <span class="about-label sans">THE STORY</span>
+          <h2 class="serif about-title">FORGED IN FREQUENCY</h2>
+          <p class="sans about-text">
+            El Dorado was born from the intersection of ancient wisdom and modern luxury. We believe that 
+            everything in the universe vibrates at a specific frequency — and 963Hz, known as the "Frequency 
+            of the Gods," represents the highest state of spiritual awakening.
+          </p>
+          <p class="sans about-text">
+            Each piece in our collection is more than jewelry — it's a statement of intention. Crafted in 
+            premium 925 sterling silver by master artisans, our designs embody the perfect balance between 
+            minimalist elegance and powerful symbolism.
+          </p>
+          <p class="sans about-text">
+            We are a Canadian-based brand dedicated to creating pieces that elevate your energy, 
+            complement your style, and connect you to something greater than yourself.
+          </p>
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-value serif">925</span>
+              <span class="stat-label sans">Sterling Silver</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value serif">963</span>
+              <span class="stat-label sans">Hz Resonance</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value serif">∞</span>
+              <span class="stat-label sans">Lifetime Warranty</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="section-padding" style="text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
-    <p class="sans" style="font-size: 0.7rem; letter-spacing: 0.3em; opacity: 0.4;">&copy; 2026 EL DORADO. V2.0 - COSMIC UPDATE LIVE.</p>
+  <!-- Full Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4 class="serif footer-brand">EL DORADO</h4>
+        <p class="sans footer-tagline">963Hz Resonant Silver Jewelry</p>
+        <p class="sans footer-desc">Premium sterling silver crafted with vibrational resonance for the conscious individual.</p>
+      </div>
+      <div class="footer-col">
+        <h5 class="sans footer-heading">SHOP</h5>
+        <a href="#collections" class="sans">All Collections</a>
+        <a href="#collections" class="sans">Bracelets</a>
+        <a href="#collections" class="sans">Chains</a>
+        <a href="#collections" class="sans">Pendants</a>
+      </div>
+      <div class="footer-col">
+        <h5 class="sans footer-heading">SUPPORT</h5>
+        <a href="/faq.html" class="sans">FAQ</a>
+        <a href="/legal/shipping-policy.html" class="sans">Shipping Info</a>
+        <a href="/legal/refund-policy.html" class="sans">Returns & Refunds</a>
+        <a href="mailto:tommy@innovlead.ca" class="sans">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h5 class="sans footer-heading">LEGAL</h5>
+        <a href="/legal/terms-of-service.html" class="sans">Terms of Service</a>
+        <a href="/legal/privacy-policy.html" class="sans">Privacy Policy</a>
+        <a href="/legal/refund-policy.html" class="sans">Refund Policy</a>
+        <a href="/legal/shipping-policy.html" class="sans">Shipping Policy</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p class="sans">&copy; 2026 EL DORADO. ALL RIGHTS RESERVED.</p>
+      <div class="footer-payment-icons sans">
+        <span title="Visa">💳</span>
+        <span title="Mastercard">💳</span>
+        <span title="Stripe Secure">🔒</span>
+        <span title="XRP Crypto">₿</span>
+      </div>
+    </div>
   </footer>
 `
 

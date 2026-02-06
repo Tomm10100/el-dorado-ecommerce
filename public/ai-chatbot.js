@@ -336,7 +336,7 @@ class ElDoradoChatbot {
 
         // Product inquiries
         if (lowerMessage.includes('product') || lowerMessage.includes('collection') || lowerMessage.includes('jewelry')) {
-            return "✨ Our Silver Collection features 6 premium pieces:\n\n💎 Item 1 - Cross Pendant - $399\n⛓️ Item 2 - Iced Chain - $449\n💫 Item 3 - Silver Bracelet - $299\n✨ Item 4 - Silver Bracelet - $349\n🌙 Item 5 - Silver Bracelet - $349\n⚡ Item 6 - Silver Bracelet - $499\n\nAll crafted in 925 sterling silver with 963Hz resonance. Which piece calls to you?";
+            return "✨ Our Lunar Elegance Collection features 6 premium pieces:\n\n💎 Cruz-Ki — Cross Pendant — $200\n⛓️ Fuego Cadena — Cuban Link Chain — $1,200\n💫 Dumfe — Cuban Link Bracelet — $400\n✨ Chan — Gucci Link Bracelet — $300\n🌙 Oni — Box Chain Bracelet — $200\n⚡ Fan — Chain Link Bracelet — $200\n\nAll crafted in 925 sterling silver with 963Hz resonance. Which piece calls to you?";
         }
 
         // 963Hz inquiries
@@ -356,7 +356,7 @@ class ElDoradoChatbot {
 
         // Price inquiries
         if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('how much')) {
-            return "💎 Our collection ranges from $299-$499\n\nItem 1 - Cross Pendant: $399\nItem 2 - Iced Chain: $449\nItem 3 - Silver Bracelet: $299\nItem 4 - Silver Bracelet: $349\nItem 5 - Silver Bracelet: $349\nItem 6 - Silver Bracelet: $499\n\nAll prices include authentication certificate and premium packaging!";
+            return "💎 Our collection ranges from $200-$1,200\n\nCruz-Ki — Cross Pendant: $200\nFuego Cadena — Cuban Link Chain: $1,200\nDumfe — Cuban Link Bracelet: $400\nChan — Gucci Link Bracelet: $300\nOni — Box Chain Bracelet: $200\nFan — Chain Link Bracelet: $200\n\nAll prices include authentication certificate and premium packaging!";
         }
 
         // Payment inquiries

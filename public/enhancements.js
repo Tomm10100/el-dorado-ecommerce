@@ -7,8 +7,14 @@
 
 class AnalyticsTracker {
     constructor() {
-        this.gaId = import.meta.env.VITE_GA_MEASUREMENT_ID || '';
-        this.fbPixelId = import.meta.env.VITE_FB_PIXEL_ID || '';
+        // Safe env variable access - import.meta.env may not exist in static/public files
+        try {
+            this.gaId = (typeof import.meta !== 'undefined' && import.meta.env) ? import.meta.env.VITE_GA_MEASUREMENT_ID || '' : '';
+            this.fbPixelId = (typeof import.meta !== 'undefined' && import.meta.env) ? import.meta.env.VITE_FB_PIXEL_ID || '' : '';
+        } catch (e) {
+            this.gaId = '';
+            this.fbPixelId = '';
+        }
         this.init();
     }
 
@@ -392,7 +398,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===========================================
 
 function initLiveChat() {
-    const tawkToId = import.meta.env.VITE_TAWKTO_ID || '';
+    let tawkToId = '';
+    try {
+        tawkToId = (typeof import.meta !== 'undefined' && import.meta.env) ? import.meta.env.VITE_TAWKTO_ID || '' : '';
+    } catch (e) {
+        tawkToId = '';
+    }
 
     if (!tawkToId) {
         console.log('⚠️ Live chat not configured. Add VITE_TAWKTO_ID to .env');
